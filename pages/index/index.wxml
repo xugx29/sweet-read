@@ -14,26 +14,36 @@
       </block>  
   </swiper>
   <view class="menuContainer">
-    <view class="menuItem">
-        <image src="../images/shuku.png"></image>
-        <text>书库</text>
-    </view>
-    <view class="menuItem">
-        <image src="../images/dengji.png"></image>
-        <text>排行榜</text>
-    </view>
+    <navigator class="menuItemContainer">
+      <view class="menuItem">
+          <image src="../images/shuku.png"></image>
+          <text>书库</text>
+      </view>
+    </navigator>
+    <navigator class="menuItemContainer" url="/pages/rank/rank">
+      <view class="menuItem">
+          <image src="../images/dengji.png"></image>
+          <text>排行榜</text>
+      </view>
+    </navigator>
+    <navigator class="menuItemContainer">
     <view class="menuItem">
         <image src="../images/shu.png"></image>
         <text>完本</text>
     </view>
+    </navigator>
+    <navigator class="menuItemContainer">
     <view class="menuItem">
         <image src="../images/shujia.png"></image>
         <text>书架</text>
     </view>
+    </navigator>
+    <navigator class="menuItemContainer">
     <view class="menuItem">
         <image src="../images/geren.png"></image>
         <text>个人中心</text>
     </view>
+    </navigator>
   </view>
   
   <view class="listContainer">

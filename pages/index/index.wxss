@@ -42,6 +42,14 @@ swiper{
   display: flex;
   padding:0rpx 10rpx;
 }
+navigator.menuItemContainer{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height:190rpx;
+  justify-content:center;
+  align-items:center;
+}
 .menuItem{
   display: flex;
   flex-direction: column;
