@@ -1,0 +1,188 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="searchContainer">
+    <input class="searchInput" placeholder-class="placeholderClass" placeholder='搜索：倾世妖妃'></input><button class="themeBgColor searchButton" size="10">搜索</button>
+  </view>
+  <swiper indicator-dots="true"  
+        autoplay="true" interval="3000" circular="true" duration="500">  
+      <block wx:for="{{swiperImgUrls}}">  
+        <swiper-item>  
+           <navigator style="width:100%;" class="navigatorContainer" hover-class="navigator-hover">  
+            <image src="{{item.url}}" class="slideImage" width="355" height="150"/>  
+           </navigator>   
+        </swiper-item>  
+      </block>  
+  </swiper>
+  <view class="menuContainer">
+    <view class="menuItem">
+        <image src="../images/shuku.png"></image>
+        <text>书库</text>
+    </view>
+    <view class="menuItem">
+        <image src="../images/dengji.png"></image>
+        <text>排行榜</text>
+    </view>
+    <view class="menuItem">
+        <image src="../images/shu.png"></image>
+        <text>完本</text>
+    </view>
+    <view class="menuItem">
+        <image src="../images/shujia.png"></image>
+        <text>书架</text>
+    </view>
+    <view class="menuItem">
+        <image src="../images/geren.png"></image>
+        <text>个人中心</text>
+    </view>
+  </view>
+  
+  <view class="listContainer">
+  <!-- 本期推荐 -->
+    <view class="recommendContainer">
+      <view class="recommendTitle titleContainer">
+        <view class="TitleColorIcon"></view>
+        <text>本期推荐</text>
+      </view>
+      <view class="listContent">
+        <view class="listItem"  wx:for-index="idx" wx:for="{{recommendArr}}">
+           <view wx:if="{{idx == 0}}" style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
+              <view class="itemImage">
+                  <image mode="widthFix" src="{{item.imgUrl}}"></image>
+              </view>
+              <view class="itemContent">
+                  <view class="articleTitle"><text class="titleContent">{{item.title}}</text> <text class="bookTypeTarget">{{item.bookType}}</text></view>
+                  <text class="articleAuthor">{{item.author}}</text>
+                  <text class="articleDesc">{{item.desc}}</text>
+              </view>
+           </view>
+           <view wx:else class="normalList border-bottom-1px-ccc">
+              <text class="bookTypeTarget">{{item.bookType}}</text><text class="normalListTitle">{{item.title}}</text><text class="normalListAuthor">{{item.author}}</text>
+           </view> 
+        </view>
+      </view>
+    </view>
+    <!-- 闺蜜热读 -->
+     <view class="guimireduContainer">
+      <view class="guimireduTitle titleContainer mt15">
+        <view class="TitleColorIcon"></view>
+        <text>闺蜜热读</text>
+      </view>
+      <view class="listContent">
+        <view class="listItem"  wx:for-index="idx" wx:for="{{guimiredu}}">
+           <view wx:if="{{idx < 3}}" style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
+              <view class="itemImage">
+                  <image mode="widthFix" src="{{item.imgUrl}}"></image>
+              </view>
+              <view class="itemContent">
+                  <view class="articleTitle"><text class="titleContent">{{item.title}}</text> <text class="bookTypeTarget">{{item.bookType}}</text></view>
+                  <text class="articleAuthor">{{item.author}}</text>
+                  <text class="articleDesc">{{item.desc}}</text>
+              </view>
+           </view>
+           <view wx:else class="normalList border-bottom-1px-ccc">
+              <text class="bookTypeTarget">{{item.bookType}}</text><text class="normalListTitle">{{item.title}}</text><text class="normalListAuthor">{{item.author}}</text>
+           </view> 
+        </view>
+      </view>
+    </view>
+    <!-- 热销短言情 -->
+     <view class="duanyanqingContainer">
+      <view class="duanyanqingTitle titleContainer mt15">
+        <view class="TitleColorIcon"></view>
+        <text>热销短言情</text>
+      </view>
+      <view class="listContent">
+        <view class="picAndText">
+           <view class="picAndTextItem"  wx:for-index="idx" wx:for="{{duanyanqing}}">
+              <view style="width:100%;"><image mode="widthFix" src="{{item.imgUrl}}"></image></view>
+              <text>{{item.title}}</text>
+           </view> 
+        </view>
+      </view>
+    </view>
+    <!-- 热销古言 -->
+     <view class="guyanContainer">
+      <view class="guyanTitle titleContainer">
+        <view class="TitleColorIcon"></view>
+        <text>热销古言</text>
+      </view>
+      <view class="listContent">
+        <view class="listItem"  wx:for-index="idx" wx:for="{{guyanArr}}">
+           <view wx:if="{{idx == 0}}" style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
+              <view class="itemImage">
+                  <image mode="widthFix" src="{{item.imgUrl}}"></image>
+              </view>
+              <view class="itemContent">
+                  <view class="articleTitle"><text class="titleContent">{{item.title}}</text> <text class="bookTypeTarget">{{item.bookType}}</text></view>
+                  <text class="articleAuthor">{{item.author}}</text>
+                  <text class="articleDesc">{{item.desc}}</text>
+              </view>
+           </view>
+           <view wx:else class="normalList border-bottom-1px-ccc">
+              <text class="bookTypeTarget">{{item.bookType}}</text><text class="normalListTitle">{{item.title}}</text><text class="normalListAuthor">{{item.author}}</text>
+           </view> 
+        </view>
+      </view>
+    </view>
+    <!-- 广告图1 -->
+    <view class="ad">
+      <image mode="widthFix" src="{{adImgUrls[0].url}}"></image>
+    </view>
+     <!-- 热销现言 -->
+     <view class="xianyanContainer">
+      <view class="xianyanTitle titleContainer">
+        <view class="TitleColorIcon"></view>
+        <text>热销现言</text>
+      </view>
+      <view class="listContent">
+        <view class="listItem"  wx:for-index="idx" wx:for="{{xianyanArr}}">
+           <view wx:if="{{idx == 0}}" style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
+              <view class="itemImage">
+                  <image mode="widthFix" src="{{item.imgUrl}}"></image>
+              </view>
+              <view class="itemContent">
+                  <view class="articleTitle"><text class="titleContent">{{item.title}}</text> <text class="bookTypeTarget">{{item.bookType}}</text></view>
+                  <text class="articleAuthor">{{item.author}}</text>
+                  <text class="articleDesc">{{item.desc}}</text>
+              </view>
+           </view>
+           <view wx:else class="normalList border-bottom-1px-ccc">
+              <text class="bookTypeTarget">{{item.bookType}}</text><text class="normalListTitle">{{item.title}}</text><text class="normalListAuthor">{{item.author}}</text>
+           </view> 
+        </view>
+      </view>
+    </view>
+     <!-- 广告图2 -->
+    <view class="ad">
+      <image mode="widthFix" src="{{adImgUrls[1].url}}"></image>
+    </view>
+
+ <!-- 剩余三个 -->
+    <view class="otherContainer">
+      <view class="otherTitle titleContainer">
+        <view class="TitleColorIcon"></view>
+        <text>本期推荐</text>
+      </view>
+      <view class="listContent">
+        <view class="listItem"  wx:for-index="idx" wx:for="{{otherArr}}">
+           <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
+              <view class="itemImage">
+                  <image mode="widthFix" src="{{item.imgUrl}}"></image>
+              </view>
+              <view class="itemContent">
+                  <view class="articleTitle"><text class="titleContent">{{item.title}}</text> <text class="bookTypeTarget">{{item.bookType}}</text></view>
+                  <text class="articleAuthor">{{item.author}}</text>
+                  <text class="articleDesc">{{item.desc}}</text>
+              </view>
+           </view>
+        </view>
+      </view>
+    </view>
+
+
+
+
+
+  </view>
+
+</view>

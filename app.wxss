@@ -1,0 +1,31 @@
+/**app.wxss**/
+/* .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}  */
+.themeFontColor{
+  color : #ff773d
+}
+.themeBgColor{
+  background : #ff773d;
+  color:#fff;
+}
+view{
+  display: block;
+}
+.pull-left{
+  float:left;
+  display: inline-block;
+}
+.mt15{
+  margin-top:15rpx;
+}
+
+page{
+  font-family: SF UI Display,Robot
+}
