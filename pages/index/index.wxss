@@ -98,6 +98,7 @@ swiper{
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content:space-between;
 }
 .articleAuthor{
   font-size:0.85em;
@@ -120,6 +121,7 @@ swiper{
   border:1px solid #ff773d;
   font-size:.45em;
   color:#ff773d;
+  min-width:70rpx
 }
 .titleContent{
   margin-right:15rpx;
