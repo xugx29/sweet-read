@@ -1,0 +1,40 @@
+.shelfContainer{
+  padding:0 30rpx;
+}
+.shelfItem{
+  display: flex;
+  flex-direction: row;
+  margin:28rpx 0;
+}
+.shelfItem image{
+  width:200rpx;
+  border:#e4007f;
+  border-radius:15rpx;
+}
+.shelfInfo{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.shelfInfo{
+  margin-left:20rpx;
+}
+.title{
+  color:#333;
+}
+.author{
+  color:#666;
+  font-size:.85em;
+  margin:5rpx 0 18rpx;
+}
+.bookUpdateInfo{
+  font-size:.85em;
+  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 3; 
+  overflow: hidden;
+  line-height: 1.5;
+}
+.progress{
+  font-weight: 600;
+}

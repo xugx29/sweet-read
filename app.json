@@ -1,7 +1,8 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/rank/rank"
+    "pages/rank/rank",
+    "pages/bookshelf/bookshelf"
   ],
   "window":{
     "backgroundTextStyle":"light",

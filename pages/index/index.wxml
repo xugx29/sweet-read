@@ -32,7 +32,7 @@
         <text>完本</text>
     </view>
     </navigator>
-    <navigator class="menuItemContainer">
+    <navigator class="menuItemContainer" url="/pages/bookshelf/bookshelf">
     <view class="menuItem">
         <image src="../images/shujia.png"></image>
         <text>书架</text>

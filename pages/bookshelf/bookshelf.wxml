@@ -1,0 +1,10 @@
+<view class="shelfContainer">
+  <view wx:for="{{shelfData}}"  wx:key="*this" class="shelfItem">
+    <image mode="widthFix" src="{{item.imgUrl}}"></image>
+    <view class="shelfInfo">
+        <text class="title">娇妻动人：陆少束手就擒</text>
+        <text class="author">清风如酒</text>
+        <view class="bookUpdateInfo"><text class="themeFontColor progress">更新至：</text>第185章 如果你回来了我就不抽烟了</view>
+    </view>
+  </view>
+</view>

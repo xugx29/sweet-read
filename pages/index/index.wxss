@@ -127,9 +127,10 @@ navigator.menuItemContainer{
   height:25rpx;
   line-height: 25rpx;
   border:1px solid #ff773d;
-  font-size:.45em;
+  font-size:.47em;
   color:#ff773d;
-  min-width:70rpx
+  min-width:80rpx;
+  text-align: center
 }
 .titleContent{
   margin-right:15rpx;
@@ -139,11 +140,13 @@ navigator.menuItemContainer{
   white-space: nowrap;
 }
 .border-bottom-1px-ccc{
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1rpx solid #ccc;
+  margin-top:28rpx;
 }
 .normalList{
   align-items: center;
   display:flex;padding:20rpx 0;
+  margin:0 !important;
 }
 .normalListTitle{
   font-size:.8em;

@@ -25,7 +25,9 @@ view{
 .mt15{
   margin-top:15rpx;
 }
-
+.mb28{
+  margin-bottom:28rpx
+}
 page{
   font-family: SF UI Display,Robot
 }
