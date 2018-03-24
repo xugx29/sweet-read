@@ -14,7 +14,7 @@
       </block>  
   </swiper>
   <view class="menuContainer">
-    <navigator class="menuItemContainer">
+    <navigator class="menuItemContainer" url="/pages/stacks/stacks">
       <view class="menuItem">
           <image src="../images/shuku.png"></image>
           <text>书库</text>

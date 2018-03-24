@@ -1,0 +1,97 @@
+<view class="stacksContainer">
+    <view class="stacksBigType">
+        <view class="stackBigTitle">女生</view>
+        <view class="stacksSmallTypeContainer">
+            <view class="items">
+              <image src="../images/shuku.jpg" mode="widthFix"></image>
+              <view class="typeInfo">
+                  <text class="typeName">现代言情</text>
+                  <text class="typeBookNum">5142本</text>
+              </view>
+            </view>
+            <view class="items">
+              <image src="../images/shuku.jpg" mode="widthFix"></image>
+              <view class="typeInfo">
+                  <text class="typeName">现代言情</text>
+                  <text class="typeBookNum">5142本</text>
+              </view>
+            </view>
+            <view class="items">
+              <image src="../images/shuku.jpg" mode="widthFix"></image>
+              <view class="typeInfo">
+                  <text class="typeName">现代言情</text>
+                  <text class="typeBookNum">5142本</text>
+              </view>
+            </view>
+            <view class="items">
+              <image src="../images/shuku.jpg" mode="widthFix"></image>
+              <view class="typeInfo">
+                  <text class="typeName">现代言情</text>
+                  <text class="typeBookNum">5142本</text>
+              </view>
+            </view>
+            <view class="items">
+              <image src="../images/shuku.jpg" mode="widthFix"></image>
+              <view class="typeInfo">
+                  <text class="typeName">现代言情</text>
+                  <text class="typeBookNum">5142本</text>
+              </view>
+            </view>
+            <view class="items">
+              <image src="../images/shuku.jpg" mode="widthFix"></image>
+              <view class="typeInfo">
+                  <text class="typeName">现代言情</text>
+                  <text class="typeBookNum">5142本</text>
+              </view>
+            </view>
+        </view>
+    </view>
+
+     <view class="stacksBigType">
+        <view class="stackBigTitle">男生</view>
+        <view class="stacksSmallTypeContainer">
+            <view class="items">
+              <image src="../images/shuku.jpg" mode="widthFix"></image>
+              <view class="typeInfo">
+                  <text class="typeName">现代言情</text>
+                  <text class="typeBookNum">5142本</text>
+              </view>
+            </view>
+            <view class="items">
+              <image src="../images/shuku.jpg" mode="widthFix"></image>
+              <view class="typeInfo">
+                  <text class="typeName">现代言情</text>
+                  <text class="typeBookNum">5142本</text>
+              </view>
+            </view>
+            <view class="items">
+              <image src="../images/shuku.jpg" mode="widthFix"></image>
+              <view class="typeInfo">
+                  <text class="typeName">现代言情</text>
+                  <text class="typeBookNum">5142本</text>
+              </view>
+            </view>
+            <view class="items">
+              <image src="../images/shuku.jpg" mode="widthFix"></image>
+              <view class="typeInfo">
+                  <text class="typeName">现代言情</text>
+                  <text class="typeBookNum">5142本</text>
+              </view>
+            </view>
+            <view class="items">
+              <image src="../images/shuku.jpg" mode="widthFix"></image>
+              <view class="typeInfo">
+                  <text class="typeName">现代言情</text>
+                  <text class="typeBookNum">5142本</text>
+              </view>
+            </view>
+            <view class="items">
+              <image src="../images/shuku.jpg" mode="widthFix"></image>
+              <view class="typeInfo">
+                  <text class="typeName">现代言情</text>
+                  <text class="typeBookNum">5142本</text>
+              </view>
+            </view>
+        </view>
+    </view>
+</view>

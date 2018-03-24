@@ -1,0 +1,40 @@
+.stacksContainer{
+  padding:0 30rpx;
+}
+.stackBigTitle{
+  height:100rpx;
+  line-height: 100rpx;
+}
+.stacksSmallTypeContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+}
+.items{
+  width:50%;
+  height:250rpx; 
+  border-top:1px solid #ccc;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.items image{
+  width:140rpx;
+  border-radius: 10rpx;
+}
+.stacksSmallTypeContainer .items:nth-child(2n+1){
+  padding-left:20rpx;
+}
+.typeInfo{
+  flex:1;
+  padding-left:15rpx;
+  display:flex;
+  flex-direction: column;
+}
+.typeBookNum{
+  font-size:.80em;
+  color:#666;
+  margin-top:5rpx;
+}

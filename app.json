@@ -4,7 +4,8 @@
     "pages/rank/rank",
     "pages/bookshelf/bookshelf",
     "pages/finish/finish",
-    "pages/finishSearch/finishSearch"
+    "pages/finishSearch/finishSearch",
+    "pages/stacks/stacks"
   ],
   "window":{
     "backgroundTextStyle":"light",
