@@ -1,0 +1,109 @@
+.stackInfoContainer{
+  padding:10rpx 30rpx 0;
+}
+.searchLine{
+  display: flex;
+  margin:10rpx 0 0; 
+  align-content: center;
+  align-items: center;
+}
+.searchLine text{
+  display: inline-block;
+  height:50rpx;
+}
+.desc{
+  font-size: .94em;
+}
+.item{
+  font-size:0.88em;
+  margin-left:28rpx;
+}
+
+
+
+
+
+scroll-view{
+  height:calc(100vh - 150rpx);
+}
+view .listItem{
+  padding-top:26rpx;
+  border-top: 1rpx solid #ccc;
+}
+view .listItem:first-child{
+  border: 0;
+}
+.itemImage{
+  overflow: hidden;
+}
+.itemImage image{
+  float:left;
+  display: inline-block;
+  width:200rpx !important;
+  border: #e4007f;
+  border-radius: 15rpx;
+}
+.itemContent{
+  width:calc(100% - 200rpx);
+  margin-left:20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.itemContent .articleTitle{
+  color:#333;
+  margin-top:10rpx;
+  margin-bottom: 10rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content:space-between; */
+}
+.bookInfo{
+  margin-top: 12rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+}
+.articleAuthor{
+  font-size:0.85em;
+  color:#555;
+}
+.articleDesc{
+  font-size:0.85em;
+  color:#888;
+  display: -webkit-box; 
+  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 3; 
+  overflow: hidden;
+  line-height: 1.5;
+}
+.titleContent{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.count{
+  display: flex;
+  align-items:center;
+}
+.type{
+  padding:0rpx 5rpx;
+  height:25rpx;
+  line-height: 25rpx;
+  border:1px solid #ff773d;
+  font-size:.47em;
+  color:#ff773d;
+  min-width:80rpx;
+  margin-right:10rpx;
+  text-align: center;
+}
+.countNum{
+  padding:0rpx 10rpx;
+  height:25rpx;
+  line-height: 25rpx;
+  border:1px solid #4687e8;
+  font-size:.47em;
+  color:#4687e8;
+  min-width:40rpx;
+  text-align: center;
+}

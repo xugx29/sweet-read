@@ -183,7 +183,7 @@ navigator.menuItemContainer{
   width:100%;
 }
 .picAndTextItem text{
-   font-size:0.81em;
+   font-size:0.88em;
     display: -webkit-box; 
   -webkit-box-orient: vertical; 
   -webkit-line-clamp: 2; 

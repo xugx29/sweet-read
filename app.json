@@ -5,7 +5,8 @@
     "pages/bookshelf/bookshelf",
     "pages/finish/finish",
     "pages/finishSearch/finishSearch",
-    "pages/stacks/stacks"
+    "pages/stacks/stacks",
+    "pages/stackInfo/stackInfo"
   ],
   "window":{
     "backgroundTextStyle":"light",
