@@ -26,7 +26,7 @@
           <text>排行榜</text>
       </view>
     </navigator>
-    <navigator class="menuItemContainer">
+    <navigator class="menuItemContainer" url="/pages/finish/finish">
     <view class="menuItem">
         <image src="../images/shu.png"></image>
         <text>完本</text>

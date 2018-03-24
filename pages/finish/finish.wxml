@@ -1,0 +1,58 @@
+<view class="finishContainer">
+  <view class="hot-finish">
+      <view class="typeTitle">
+          <view class="title"><text class="icon"></text><text>热门完本</text></view>
+          <text class="more" bindtap='navigateToSearchFinish' data-id="热门完本">更多></text>
+      </view>
+
+       <view>
+          <view class="listItem" wx:for-index="idx" wx:for="{{hotData}}">
+          <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
+            <view class="itemImage">
+                <image mode="widthFix" src="{{item.imgUrl}}"></image>
+            </view>
+            <view class="itemContent">
+                <view class="articleTitle"><text class="titleContent">{{item.title}}</text></view>
+                <text class="articleDesc">{{item.desc}}</text>
+                <view class="bookInfo"> 
+                  <text class="articleAuthor">{{item.author}}</text>
+                  <view class="count">
+                    <text class="type">{{item.bookType}}</text>
+                    <text class="countNum">1.293万</text>
+                  </view>
+                </view>
+            </view>
+          </view>
+        </view>
+
+       </view>  
+  </view>
+
+<!-- 最新完本 -->
+<view class="new-finish">
+      <view class="typeTitle">
+          <view class="title"><text class="icon"></text><text>最新完本</text></view>
+          <text class="more" bindtap='navigateToSearchFinish' data-id='最新完本'>更多></text>
+      </view>
+       <view>
+          <view class="listItem" wx:for-index="idx" wx:for="{{newData}}">
+          <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
+            <view class="itemImage">
+                <image mode="widthFix" src="{{item.imgUrl}}"></image>
+            </view>
+            <view class="itemContent">
+                <view class="articleTitle"><text class="titleContent">{{item.title}}</text></view>
+                <text class="articleDesc">{{item.desc}}</text>
+                <view class="bookInfo"> 
+                  <text class="articleAuthor">{{item.author}}</text>
+                  <view class="count">
+                    <text class="type">{{item.bookType}}</text>
+                    <text class="countNum">1.293万</text>
+                  </view>
+                </view>
+            </view>
+          </view>
+        </view>
+       </view>  
+  </view>
+</view>

@@ -31,3 +31,6 @@ view{
 page{
   font-family: SF UI Display,Robot
 }
+view,text,input,textarea{
+  color:#333;
+}

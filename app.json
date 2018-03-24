@@ -2,7 +2,9 @@
   "pages":[
     "pages/index/index",
     "pages/rank/rank",
-    "pages/bookshelf/bookshelf"
+    "pages/bookshelf/bookshelf",
+    "pages/finish/finish",
+    "pages/finishSearch/finishSearch"
   ],
   "window":{
     "backgroundTextStyle":"light",

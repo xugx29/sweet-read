@@ -1,0 +1,56 @@
+
+<view class="finishSearch">
+    <view class="searchMenu" style="{{showTypeContent || showSearchContent ? 'border:0' :''}}">
+        <view class="flexItem">
+            <view class="c" bindtap='showSeacrchContent' data-id="1">
+                <view class="buttonArea {{showTypeContent ? 'choose' : ''}}"><text class="typeName">全部分类</text> <image mode="widthFix" class="buttonIcon" src="{{showTypeContent ? '../images/shang.png' : '../images/xia.png'}}"></image></view>
+            </view>   
+        </view>
+        <view class="flexItem">
+            <view class="c" bindtap='showSeacrchContent' data-id="2">
+                <view class="buttonArea {{showSearchContent ? 'choose' : ''}}"><text class="typeName">筛选</text> <image mode="widthFix" class="buttonIcon" src="{{showSearchContent ? '../images/shang.png' : '../images/xia.png'}}"></image></view>
+            </view>
+        </view>
+       
+    </view>
+   <view class="searchContent">
+      <view class="searchItem typeContent" hidden='{{!showTypeContent}}'>
+          <view wx:for="{{bookTypes}}" data-id="{{index}}" bindtap='changeChoose' class="item {{index == chooseTypeId ? 'choose' : ''}}">{{item}}</view>
+      </view>
+      <view class="searchItem searchMain" hidden='{{!showSearchContent}}'>
+          <view class="searchListItem">
+              <view><text class="itemDesc">资费</text></view>
+              <text wx:for="{{costTypesArr}}" bindtap='changeSelect' data-type="cost" data-id="{{index}}" class="searchListItemType {{index == costButtonId ? 'choose' : ''}}">{{item}}</text>
+          </view>
+          <view class="searchListItem">
+              <view><text class="itemDesc">进度</text></view>
+              <text wx:for="{{progressTypesArr}}" bindtap='changeSelect' data-type="progress" data-id="{{index}}" class="searchListItemType {{index == progressButtonId ? 'choose' : ''}}">{{item}}</text>
+          </view>
+          <view class="confirmArea"> <button class="themeBgColor submit">确认</button></view>
+      </view>
+    </view>
+
+    <scroll-view scroll-y="{{isScroll}}" class="itemContainer">
+      <view class="listItem" wx:for-index="idx" wx:for="{{finishArr}}">
+           <view style="display:flex;padding-bottom:30rpx;">
+              <view class="itemImage">
+                  <image mode="widthFix" src="{{item.imgUrl}}"></image>
+              </view>
+              <view class="itemContent">
+                  <view class="articleTitle"><text class="titleContent">{{item.title}}</text></view>
+                  <text class="articleDesc">{{item.desc}}</text>
+                  <view class="bookInfo"> 
+                    <text class="articleAuthor">{{item.author}}</text>
+                    <view class="count">
+                      <text class="type">古代言情</text>
+                      <text class="countNum">1.293万</text>
+                    </view>
+                  </view>
+              </view>
+           </view>
+        </view>
+    </scroll-view>
+
+     <view class="mask" bindtap='hideMask' hidden='{{!showSearchContent && !showTypeContent}}' style="height:{{contentHeight}}px;line-height:{{contentHeight}}px"></view> 
+
+</view>
