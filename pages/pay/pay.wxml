@@ -1,13 +1,58 @@
 <view class="payContainer">
   <view class="payItemsContainer">
     <view class="items">
+        <image class="hot" src="../images/hot.jpg" mode="widthFix"></image>
         <text class="cny">30元</text>
         <text class="sweet">2850甜豆</text>
+        <text class="gift themeFontColor">(赠950甜豆)</text>
     </view>
-    <view class="items"></view>
-    <view class="items"></view>
-    <view class="items"></view>
-    <view class="items"></view>
-    <view class="items"></view>
+  
+    <view class="items">
+        <image class="hot" src="../images/hot.jpg" mode="widthFix"></image>
+        <text class="cny">30元</text>
+        <text class="sweet">2850甜豆</text>
+        <text class="gift themeFontColor">(赠950甜豆)</text>
+    </view>
+
+    <view class="items">
+        <image class="hot" src="../images/hot.jpg" mode="widthFix"></image>
+        <text class="cny">30元</text>
+        <text class="sweet">2850甜豆</text>
+        <text class="gift themeFontColor">(赠950甜豆)</text>
+    </view>
+
+    <view class="items">
+        <image class="hot" src="../images/hot.jpg" mode="widthFix"></image>
+        <text class="cny">30元</text>
+        <text class="sweet">2850甜豆</text>
+        <text class="gift themeFontColor">(赠950甜豆)</text>
+    </view>
+
+    <view class="items">
+        <image class="hot" src="../images/hot.jpg" mode="widthFix"></image>
+        <text class="cny">30元</text>
+        <text class="sweet">2850甜豆</text>
+        <text class="gift themeFontColor">(赠950甜豆)</text>
+    </view>
+
+    <view class="items">
+        <image class="hot" src="../images/hot.jpg" mode="widthFix"></image>
+        <text class="cny">30元</text>
+        <text class="sweet">2850甜豆</text>
+        <text class="gift themeFontColor">(赠950甜豆)</text>
+    </view>
+  </view>
+
+  <view class="noticeContent">
+    <text class="title">温馨提示：</text>
+    <text class="noticeItem">1、微信1元=95甜豆。</text>
+    <text class="noticeItem">2、发现充值未到账时，请先确认你登录的账号与充值的账号是否一致。</text>
+    <text class="noticeItem">3、从微信进入小程序只能选择微信充值。</text>
+    <text class="noticeItem">4、充值到账有延迟，如果24小时内未到账请与客服联系。</text>
+  </view>
+
+  <view class="service">
+    <text>客服QQ：2056403671</text>
+    <text>客服电话：010-81570622</text>
   </view>
 </view>
