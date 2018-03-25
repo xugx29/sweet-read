@@ -1,0 +1,38 @@
+.costRecordContainer{
+  padding:0 30rpx;
+}
+.item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content:center;
+  height:200rpx;
+  padding:0 20rpx;
+  border-bottom:1rpx solid #eeeeee;
+}
+.recordInfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+.recordInfo text{
+  display: block;
+  width:100%;
+}
+.recordCost{
+  font-weight: bold;
+}
+.recordTitle{
+  color:333;
+  font-weight: bold
+}
+.recordContent{
+  font-size:.85em;
+  color:#666;
+  margin:5rpx 0 10rpx;
+}
+.recordTime{
+  color:#999;
+  font-size:.75em;
+}

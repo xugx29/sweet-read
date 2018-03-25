@@ -1,0 +1,11 @@
+<view class="costRecordContainer">
+  <view class="item">
+      <view class="recordInfo">
+          <text class="recordTitle">订购：斗破苍穹</text>
+          <text class="recordContent">第70章：五帝破空</text>
+          <text class="recordTime">2017-06-19 | 15:00</text>
+      </view>
+
+      <view class="recordCost themeFontColor">-20甜豆</view>
+  </view>
+</view>

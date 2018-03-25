@@ -38,7 +38,7 @@
         <text>书架</text>
     </view>
     </navigator>
-    <navigator class="menuItemContainer">
+    <navigator class="menuItemContainer" url='/pages/personal/personal'>
     <view class="menuItem">
         <image src="../images/geren.png"></image>
         <text>个人中心</text>

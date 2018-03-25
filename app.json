@@ -2,11 +2,13 @@
   "pages":[
     "pages/index/index",
     "pages/rank/rank",
+    "pages/personal/personal",
     "pages/bookshelf/bookshelf",
     "pages/finish/finish",
     "pages/finishSearch/finishSearch",
     "pages/stacks/stacks",
-    "pages/stackInfo/stackInfo"
+    "pages/stackInfo/stackInfo",
+    "pages/costRecord/costRecord"
   ],
   "window":{
     "backgroundTextStyle":"light",

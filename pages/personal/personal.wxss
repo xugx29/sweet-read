@@ -1,0 +1,57 @@
+.personalInfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  background: #fffcf3;
+  height:290rpx;
+}
+.nickname{
+  margin-top:8rpx;
+  font-size:.87em;
+}
+.profilePicture image{
+  width:140rpx;
+  border-radius: 50%;
+}
+.featureList{
+  padding:0 30rpx;
+}
+.featureItem{
+  display: flex;
+  justify-content: space-between;
+  height:110rpx;
+  border-bottom: 1px solid #ccc;
+  padding:0 30rpx;
+}
+.desc{
+  display: flex;
+  align-items: center;
+}
+.feature{
+  display: flex;
+  flex-direction:row;
+  align-items:center;
+  align-content: center;
+}
+image.icon{
+  width:44rpx;
+}
+.itemName{
+  font-size: .98em;
+  margin-left:15rpx;
+}
+.balanceInfo{
+  font-size:.92em;
+}
+.recharge{
+  width:120rpx;
+  height:60rpx;
+  font-size:.95em;
+  padding:0;
+  line-height: 60rpx;
+  margin-left:30rpx;
+}
+.arrowRight{
+  width:18rpx;
+}
