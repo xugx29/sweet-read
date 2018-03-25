@@ -1,0 +1,12 @@
+<view class="payRecordContainer">
+    <view class="item">
+        <view class="line1 line">
+          <text class="desc">充值</text>
+          <text class="amount themeFontColor">+20.00元</text>
+        </view>
+        <view class="line2 line">
+          <text class="time">2017-06-19 | 15:23</text>
+          <text class="status themeFontColor">充值完成</text>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,43 @@
+.payRecordContainer{
+  padding:0 30rpx;
+}
+.item{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding:35rpx 20rpx;
+  border-bottom:1rpx solid #eeeeee;
+}
+.line{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.line1{
+  margin-bottom:15rpx;
+}
+.line text{
+  display: block;
+  width:100%;
+}
+.amount,.status,.time,.desc{
+  width:50%;
+}
+.amount,.status{
+  text-align: right;
+}
+.time{
+  color:#999;
+  font-size:.75em;
+}
+.desc{
+  font-size:.92em;
+  font-weight: bold
+}
+.amount{
+  font-weight: bold;
+}
+.status{
+  font-size:.75em;
+}
