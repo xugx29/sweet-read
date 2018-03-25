@@ -9,7 +9,8 @@
     "pages/stacks/stacks",
     "pages/stackInfo/stackInfo",
     "pages/costRecord/costRecord",
-    "pages/payRecord/payRecord"
+    "pages/payRecord/payRecord",
+    "pages/autoFocus/autoFocus"
   ],
   "window":{
     "backgroundTextStyle":"light",

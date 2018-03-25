@@ -1,0 +1,27 @@
+.autoFocusContainer{
+  padding:0 30rpx;
+}
+.item{
+  display:flex;
+  justify-content:space-between;
+  /* flex-direction:column; */
+  padding:40rpx 20rpx;
+  border-bottom:1rpx solid #eeeeee;
+  align-content:center;
+  align-items:center;
+}
+.switch{
+  width:90rpx;
+}
+.info{
+  flex:1;
+  display: flex;align-content: center
+}
+.desc{
+  font-size:.85em;
+  color:#666;
+}
+.title,.desc{
+  height:60rpx;
+  line-height:60rpx;
+}

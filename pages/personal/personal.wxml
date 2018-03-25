@@ -14,6 +14,7 @@
         </view>
       </view>
 
+    <navigator url="/pages/autoFocus/autoFocus">
       <view class="featureItem autoFocus">
         <view class="desc"><image mode='widthFix' class="icon dingyue" src="../images/dingyue.jpg"></image><text class="itemName">自动订阅</text></view>
 
@@ -21,6 +22,8 @@
            <image class="arrowRight" mode='widthFix' src="../images/arrowRight.png"></image>
         </view>
       </view>
+    </navigator>
+    
     <navigator url="/pages/payRecord/payRecord">
       <view class="featureItem payRecord">
         <view class="desc"><image mode='widthFix' class="icon dingyue" src="../images/chongzhi.jpg"></image><text class="itemName">充值记录</text></view>
