@@ -10,7 +10,8 @@
     "pages/stackInfo/stackInfo",
     "pages/costRecord/costRecord",
     "pages/payRecord/payRecord",
-    "pages/autoFocus/autoFocus"
+    "pages/autoFocus/autoFocus",
+    "pages/pay/pay"
   ],
   "window":{
     "backgroundTextStyle":"light",

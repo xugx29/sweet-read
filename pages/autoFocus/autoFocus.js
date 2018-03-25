@@ -62,13 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
     
-  },
-  /**
-   * 点击开关
-   */
-  changeSwitch : function(event){
-      var status = event.currentTarget.dataset('status');
-      console.log(status)
-      // event.currentTarget.dataset('status') = status == 0 ?  1 : 0
   }
 })

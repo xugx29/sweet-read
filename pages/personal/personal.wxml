@@ -10,7 +10,9 @@
         <view class="desc"><image mode='widthFix' class="icon" src="../images/zhanghu.jpg"></image><text class="itemName">账户</text></view>
         <view class="feature">
           <text class="balanceInfo">余额:12</text>
-          <button class="recharge themeBgColor">充值</button>
+          <navigator url="/pages/pay/pay">
+            <button class="recharge themeBgColor">充值</button>
+          </navigator>
         </view>
       </view>
 
@@ -23,7 +25,7 @@
         </view>
       </view>
     </navigator>
-    
+
     <navigator url="/pages/payRecord/payRecord">
       <view class="featureItem payRecord">
         <view class="desc"><image mode='widthFix' class="icon dingyue" src="../images/chongzhi.jpg"></image><text class="itemName">充值记录</text></view>

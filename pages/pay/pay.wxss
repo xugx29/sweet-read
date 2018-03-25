@@ -1,0 +1,21 @@
+.payContainer{
+  padding:0 30rpx;
+}
+.payItemsContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+}
+.items{
+  width:48%;
+  height:200rpx;
+  border:1rpx solid #ccc;
+  margin-top:30rpx;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.payItemsContainer .items:nth-child(2n+1){
+  margin-right:4%;
+}

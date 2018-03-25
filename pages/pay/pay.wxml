@@ -1,0 +1,13 @@
+<view class="payContainer">
+  <view class="payItemsContainer">
+    <view class="items">
+        <text class="cny">30元</text>
+        <text class="sweet">2850甜豆</text>
+    </view>
+    <view class="items"></view>
+    <view class="items"></view>
+    <view class="items"></view>
+    <view class="items"></view>
+    <view class="items"></view>
+  </view>
+</view>

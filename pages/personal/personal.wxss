@@ -43,6 +43,7 @@ image.icon{
 }
 .balanceInfo{
   font-size:.92em;
+  margin-right:30rpx;
 }
 .recharge{
   width:120rpx;
@@ -50,7 +51,6 @@ image.icon{
   font-size:.95em;
   padding:0;
   line-height: 60rpx;
-  margin-left:30rpx;
 }
 .arrowRight{
   width:18rpx;
