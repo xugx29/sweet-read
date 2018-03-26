@@ -14,31 +14,31 @@
       </block>  
   </swiper>
   <view class="menuContainer">
-    <navigator class="menuItemContainer" url="/pages/stacks/stacks">
+    <navigator hover-class='none' class="menuItemContainer" url="/pages/stacks/stacks">
       <view class="menuItem">
           <image src="../images/shuku.png"></image>
           <text>书库</text>
       </view>
     </navigator>
-    <navigator class="menuItemContainer" url="/pages/rank/rank">
+    <navigator hover-class='none' class="menuItemContainer" url="/pages/rank/rank">
       <view class="menuItem">
           <image src="../images/dengji.png"></image>
           <text>排行榜</text>
       </view>
     </navigator>
-    <navigator class="menuItemContainer" url="/pages/finish/finish">
+    <navigator hover-class='none' class="menuItemContainer" url="/pages/finish/finish">
     <view class="menuItem">
         <image src="../images/shu.png"></image>
         <text>完本</text>
     </view>
     </navigator>
-    <navigator class="menuItemContainer" url="/pages/bookshelf/bookshelf">
+    <navigator hover-class='none' class="menuItemContainer" url="/pages/bookshelf/bookshelf">
     <view class="menuItem">
         <image src="../images/shujia.png"></image>
         <text>书架</text>
     </view>
     </navigator>
-    <navigator class="menuItemContainer" url='/pages/personal/personal'>
+    <navigator hover-class='none' class="menuItemContainer" url='/pages/personal/personal'>
     <view class="menuItem">
         <image src="../images/geren.png"></image>
         <text>个人中心</text>
