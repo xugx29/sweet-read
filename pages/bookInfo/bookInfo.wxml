@@ -25,7 +25,7 @@
     </view>
     <!-- 三个按钮 -->
     <view class="buttonArea">
-        <navigator class="toRead themeBgColor" hover-class='none'>开始阅读</navigator>
+        <navigator class="toRead themeBgColor" hover-class='none' url="/pages/catalog/catalog">开始阅读</navigator>
         <navigator class="toBookShelf dashedButton"  hover-class='none'>加入书架</navigator>
         <navigator class="autoFocus dashedButton" hover-class='none'>自动订阅</navigator>
     </view>

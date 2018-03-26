@@ -1,0 +1,54 @@
+.catalogContainer{
+  padding:30rpx 30rpx;
+}
+.desc{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;align-items: center;
+}
+.title{
+  font-weight: bold;
+}
+.sort text{
+  display: BLOCK;
+  width:90rpx;
+  padding:0;
+  height:60rpx;
+  line-height:60rpx;
+  background: #fff;
+  font-size:.8em;
+  text-align: center;
+}
+.sort text.choose{
+  background: #ff773d;
+  color:#fff;
+}
+.sort{
+  display: flex;
+  flex-direction: row;
+}
+.item{
+  display: flex;
+  flex-direction: row;
+  border-top:1rpx solid #ccc;
+  justify-content:space-between;
+  align-items: center;
+  height:80rpx;
+}
+.catalogsList{
+  margin-top:30rpx;
+}
+.catalogsList .item:last-child{
+    border-bottom:1rpx solid #ccc;
+}
+.itemTitle{
+  font-size:.88em;
+  overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+flex:1;
+}
+.lockIcon{
+  display: block;
+  width:30rpx;
+}
