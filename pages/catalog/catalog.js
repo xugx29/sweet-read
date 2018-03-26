@@ -26,6 +26,13 @@ Page({
       })
     }
   },
+  toReadBook:function(event){
+    var balance = event.currentTarget.dataset.balance;
+    var cost = event.currentTarget.dataset.cost;
+    wx.navigateTo({
+      url: '../preview/preview?cost=' + cost + '&balance=' + balance,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

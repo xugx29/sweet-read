@@ -4,6 +4,7 @@
 .stackBigTitle{
   height:100rpx;
   line-height: 100rpx;
+  font-weight: bold;
 }
 .stacksSmallTypeContainer{
   display: flex;
@@ -37,4 +38,7 @@
   font-size:.80em;
   color:#666;
   margin-top:5rpx;
+}
+.typeName{
+  font-weight: bold;
 }

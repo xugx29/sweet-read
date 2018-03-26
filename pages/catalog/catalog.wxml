@@ -8,7 +8,7 @@
   </view>
 
   <view class="catalogsList">
-    <view class="item" wx:for="{{catalogs}}">
+    <view class="item" bindtap='toReadBook' data-cost="20" data-balance="10" wx:for="{{catalogs}}">
       <text class="itemTitle">{{item}}</text>
       <image class="lockIcon" mode='widthFix' src="../images/lock.png"></image>
     </view>

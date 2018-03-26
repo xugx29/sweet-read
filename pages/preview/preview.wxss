@@ -1,0 +1,35 @@
+/* pages/preview/preview.wxss */
+page{
+  background: #eae8d3;
+}
+.articleTitle{
+  font-size:1.1em;
+  font-weight: bold;
+  color:#895b42;
+  display: block;
+  margin:25rpx 0;
+}
+.previewContainer{
+  padding:0 30rpx;
+}
+.noticeContent{
+  padding:200rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+.item{
+  font-size:.92em;
+  font-weight: bold;
+}
+.noticeContent .item:first-child{
+  margin-bottom:10rpx;
+}
+.noticeContent .item:last-child{
+ margin-top:50rpx;
+}
+.operation button{
+  font-size:.92em;
+  font-weight: normal;
+}

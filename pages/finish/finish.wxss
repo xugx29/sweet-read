@@ -16,9 +16,11 @@
   align-items: center;
   justify-content: space-between;
   color:#333;
+  font-weight: bold;
 }
 .more{
   font-size:.85em;
+  font-weight: normal;
 }
 
 
