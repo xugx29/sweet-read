@@ -196,3 +196,6 @@ view.ad{
 view.ad image{
   width:100%;
 }
+.titleContainer text{
+  font-weight: bold;
+}

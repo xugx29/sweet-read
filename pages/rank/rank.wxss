@@ -81,6 +81,7 @@ view .listItem:first-child{
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
+  font-weight: bold;
 }
 .count{
   display: flex;

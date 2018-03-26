@@ -22,6 +22,7 @@
 }
 .title{
   color:#333;
+  font-weight: bold;
 }
 .author{
   color:#666;

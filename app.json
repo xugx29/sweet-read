@@ -11,7 +11,8 @@
     "pages/costRecord/costRecord",
     "pages/payRecord/payRecord",
     "pages/autoFocus/autoFocus",
-    "pages/pay/pay"
+    "pages/pay/pay",
+    "pages/bookInfo/bookInfo"
   ],
   "window":{
     "backgroundTextStyle":"light",

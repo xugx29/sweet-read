@@ -107,6 +107,7 @@ view .listItem:first-child{
   flex-direction: column;
 }
 .itemContent .articleTitle{
+  font-weight: bold;
   color:#333;
   margin-top:10rpx;
   margin-bottom: 10rpx;

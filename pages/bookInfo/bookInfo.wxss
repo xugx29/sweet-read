@@ -1,0 +1,165 @@
+.bookInfoContainer{
+  padding:35rpx 30rpx;
+}
+.bookMainInfo{
+  display: flex;
+  flex-direction: row;
+}
+.bookPic{
+  width:210rpx;
+  border-radius: 10rpx;
+  border:1rpx solid #eee;
+  margin-right:15rpx;
+}
+.bookInfo{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+.fontNum{
+  margin-top:20rpx;
+}
+.title{
+  font-weight: bold;
+}
+.author{
+  font-size:.9em;
+  margin-top:5rpx;
+}
+.big{
+  font-size:.9em;
+}
+.small{
+  font-size:.78em;
+  color:#666;
+}
+.fansNum{
+  position: relative;
+}
+.status{
+  position: absolute;
+  bottom:0;right:0;
+  display: block;
+  padding:0rpx 10rpx;
+  height:35rpx;
+  line-height:35rpx;
+  border:1px solid #ff773d;
+  font-size:.62em;
+  color:#ff773d;
+  min-width:60rpx;
+  text-align:center;
+}
+
+.buttonArea{
+  display: flex;
+  padding:36rpx 0;
+  justify-content: space-between;
+}
+.buttonArea navigator{
+  padding:15rpx 40rpx;
+  font-size:.9em;
+  border-radius: 10rpx;
+}
+.dashedButton{
+  border:2rpx solid #ff773d;
+  color:#ff773d;
+}
+.descContainer{
+  /* margin-top:46rpx; */
+}
+.descTitle{
+  display: flex;
+  height:60rpx; 
+  align-items: center;
+  align-content: center;
+  margin-bottom:10rpx;
+}
+.tag{
+  display: block;
+  background:#ff773d;
+  width:13rpx;
+  height:25rpx;
+  margin-right:10rpx;
+}
+.descName{
+  display: block;
+  font-size:.92em;
+  font-weight: bold;
+ 
+}
+.descContent{
+  position: relative;
+  font-size:.82em;
+  color:#666;
+  margin-top:20rpx;
+  height:170rpx;
+  overflow:hidden;
+  display:block;
+  padding-bottom: 20rpx;
+}
+.descContent rich-text{
+  display: block;
+  height:100%;
+  padding-right:40rpx;
+}
+.descContent p{
+  padding-left:20rpx;
+}
+.arrowUp{
+  position: absolute;
+  bottom:20rpx;right:0rpx;
+  display: none;
+  width:40rpx;
+}
+
+.lastNew{
+  border-top:1rpx solid #ccc;
+  border-bottom:1rpx solid #ccc;
+  padding:20rpx 0;
+}
+.lastNew text:first-child{
+  font-size:.9em;
+  color:#333;
+  font-weight:bold;
+}
+.lastNew text:last-child{
+  font-size:.8em;
+  color:#666;
+}
+
+.tuijian{
+  margin-top:30rpx;
+}
+
+.picAndText{
+  display: flex;
+  flex-flow: row wrap;
+}
+.picAndTextItem{
+  width:30%;
+  margin-top:10rpx;
+  padding-right:4.99995%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+.picAndTextItem:nth-child(3n){
+  padding:0;
+}
+.picAndTextItem image{
+  width:100%;
+}
+.picAndTextItem text{
+   font-size:0.88em;
+    display: -webkit-box; 
+  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 2; 
+  overflow: hidden;
+  line-height: 1.5;
+}
+.tuijianContainer{
+  margin-top:22rpx;
+}

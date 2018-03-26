@@ -1,0 +1,71 @@
+<view class="bookInfoContainer">
+    <view class="bookMainInfo">
+        <image class="bookPic" mode="widthFix" src="../images/img4.jpg"></image>
+        <view class="bookInfo">
+            <text class="title">爱你，依旧如初</text>
+            <text class="author">木木雨</text>
+
+            <view class="fontNum">
+              <text class="big">55.34</text>
+              <text class="small">万字</text>
+            </view>
+
+            <view class="clickNum">
+              <text class="big">55.34</text>
+              <text class="small">万次点击</text>
+            </view>
+
+            <view class="fansNum">
+              <text class="big">2207</text>
+              <text class="small">书迷</text>
+              <text class="status">已完结</text>
+            </view>
+
+        </view>
+    </view>
+    <!-- 三个按钮 -->
+    <view class="buttonArea">
+        <navigator class="toRead themeBgColor" hover-class='none'>开始阅读</navigator>
+        <navigator class="toBookShelf dashedButton"  hover-class='none'>加入书架</navigator>
+        <navigator class="autoFocus dashedButton" hover-class='none'>自动订阅</navigator>
+    </view>
+    <!-- 简介 -->
+    <view class="descContainer">
+
+       <view class="descTitle">
+          <text class="tag"></text><text class="descName">简介</text>
+       </view>
+
+       <view class="descContent" style="{{showMore ? 'height: auto' : '' }}">
+        <rich-text nodes="{{descData}}"></rich-text>
+          <image class="arrowUp" bindtap='toggleShowMore' style="{{!showMore ? 'display:block' : ''}}" mode="widthFix" src="../images/arrowDown.png"></image>
+          <image class="arrowUp" bindtap='toggleShowMore' style="{{showMore ? 'display:block' : ''}}" mode="widthFix" src="../images/arrowUp.png"></image>
+       </view> 
+      <!-- <view class="descContent" nodes="{{descData}}">
+          <text>&emsp;18岁那年，我被当作礼物送到他手里。</text>
+          <text>&emsp;他宠我入骨，所有的姐妹们都羡慕我，可只有我自己心里清楚，我只是他初恋女孩的影子。。</text>
+          <text>&emsp;18岁那年，我被当作礼物送到他手里。</text>
+       </view>  -->
+
+    </view>
+    <!-- 最新 -->
+    <view class="lastNew">
+      <text>最新：</text><text>再免费推荐一本好看的书</text>
+    </view>
+
+    <!-- 精彩推荐 -->
+    <view class="tuijianContainer">
+      <view class="descTitle">
+          <text class="tag"></text><text class="descName">精彩推荐</text>
+       </view>
+
+        <view class="listContent">
+          <view class="picAndText">
+              <view class="picAndTextItem"  wx:for-index="idx" wx:for="{{tuijian}}">
+                  <view style="width:100%;"><image mode="widthFix" src="{{item.imgUrl}}"></image></view>
+                  <text>{{item.title}}</text>
+              </view> 
+            </view>
+        </view>
+    </view>
+</view>

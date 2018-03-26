@@ -18,7 +18,9 @@
   font-size:0.88em;
   margin-left:28rpx;
 }
-
+.titleContent{
+  font-weight: bold;
+}
 
 
 
