@@ -3,7 +3,7 @@ page{
   background: #eae8d3;
 }
 .articleTitle{
-  font-size:1.1em;
+  font-size:1.2em;
   font-weight: bold;
   color:#895b42;
   display: block;
