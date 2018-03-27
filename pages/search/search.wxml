@@ -1,0 +1,12 @@
+<!--pages/search/search.wxml-->
+<view class="searchContainer">
+    <view class="searchArea">
+      <view style="position:relative;flex:1;box-size:border-box;height:70rpx;">
+          <image  wx:if="{{!inputFocus}}" class="searchIcon" src="../images/searchIcon.png"></image>
+          <input class="searchInput" focus='{{getFocus}}' value="{{searchKeywords}}" bindfocus="focusBlurMethod" bindblur="focusBlurMethod" type='text' style="{{inputFocus ? 'padding:0 70rpx 0 30rpx !important;' : ''}}"></input>
+          <!-- <image wx:if="{{inputFocus}}" catchtap='clearKeywords' class="clearIcon" src="../images/clear.png"></image> -->
+      </view>
+      <text class="searchButton">搜索</text>
+  
+    </view>
+</view>

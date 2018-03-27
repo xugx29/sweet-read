@@ -4,6 +4,8 @@ const app = getApp()
 
 Page({
   data: {
+    defaultSearchKeyWords: '倾世妖妃',
+    searchKeywords: '',
     swiperImgUrls: [ // 轮播图
       {
         link: '/pages/index/index',
@@ -275,6 +277,18 @@ Page({
         imgUrl: '../images/img5.jpg'
       }
     ]
+  },
+  searchInputBlur:function(event){
+    var keywords = event.detail.value;
+    this.setData({
+      searchKeywords: keywords
+    })
+  },
+  toSearch:function(event){
+    var keywords = this.data.searchKeywords == '' ? this.data.defaultSearchKeyWords : this.data.searchKeywords
+    wx.navigateTo({
+      url: '../search/search?keywords=' + keywords,
+    })
   },
   onLoad: function () {
    

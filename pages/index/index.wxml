@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <view class="searchContainer">
-    <input class="searchInput" placeholder-class="placeholderClass" placeholder='搜索：倾世妖妃'></input><button class="themeBgColor searchButton" size="10">搜索</button>
+    <input class="searchInput" value="{{searchKeywords}}" bindblur="searchInputBlur" placeholder-class="placeholderClass" placeholder='搜索：{{defaultSearchKeyWords}}'></input><button class="themeBgColor searchButton" size="10" bindtap='toSearch'>搜索</button>
   </view>
   <swiper indicator-dots="true"  
         autoplay="true" interval="3000" circular="true" duration="500">  

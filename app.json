@@ -15,7 +15,8 @@
     "pages/bookInfo/bookInfo",
     "pages/catalog/catalog",
     "pages/preview/preview",
-    "pages/article/article"
+    "pages/article/article",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
