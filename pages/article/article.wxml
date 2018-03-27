@@ -1,0 +1,70 @@
+<!--pages/article.wxml-->
+<view class="articleContainer {{backgroundClass}}" bindtap='contentClick'>
+  <scroll-view scroll-y style="height:100vh;padding:10rpx 20rpx 20rpx;box-sizing:border-box;">
+    <text class="articleTitle">第40章 不做安家儿女不做安家儿女不做安家儿女</text>
+    <view style="margin-bottom:30rpx;">
+      <rich-text  type="text" style="font-size:{{fontSize}}em">
+        不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女
+      </rich-text>
+    </view>
+    <view class="operationArea" catchtap='operationClick'>
+        <view class="prev">上一章</view>
+        <view class="catalog">目录</view>
+        <view class="next">下一章</view>
+    </view>
+  </scroll-view>
+
+  <view wx:if="{{showBottomMenu}}" catchtap='operationClick' class="bottomMenu">
+      <view class="prevParagraph item">
+        <image class="menuIcon" src='../images/prevParagraph.png'></image>
+        <text>上一章</text>
+      </view>
+
+      <view class="catalogMenu item">
+        <image class="menuIcon" src='../images/catalogIcon.png'></image>
+        <text>目录</text>
+      </view>
+
+      <view class="moon item" catchtap='changeLight' style="{{!light ? 'display:flex;' : ''}}">
+        <image class="menuIcon" src='../images/yejian.png'></image>
+        <text>夜间</text>
+      </view>
+
+      <view class="light item" catchtap='changeLight' style="{{light ? 'display:flex;' : ''}}">
+        <image  class="menuIcon" src='../images/baitian.png'></image>
+        <text>白天</text>
+      </view>
+
+      <view class="setting item" catchtap='showSettingContent' >
+        <image class="menuIcon" src='../images/setting.png'></image>
+        <text>设置</text>
+      </view>
+
+      <view class="nextParagraph item">
+        <image class="menuIcon" src='../images/nextParagraph.png'></image>
+        <text>下一章</text>
+      </view>
+  </view>
+
+  <view class='settingContainer' catchtap='operationClick' wx:if="{{showBottomMenu && showSetting}}">
+      <view class="fontSizeContent">
+          <text class="desc">字号</text>
+          <view class="itemInfo">
+            <view class="jiajian" catchtap='changeFontSize' data-type="sub"><image class="fontSize jian" src="../images/xiao.png"></image></view>
+            <text>{{showFontSize}}</text>
+            <view class="jiajian" catchtap='changeFontSize' data-type="add" ><image class="fontSize jia" src="../images/da.png"></image></view>
+          </view>
+      </view>
+
+      <view class="backgroundContent">
+          <text class="desc">背景</text>
+          <view class="itemInfo" style="padding:0 0 0 20rpx;justify-content: flex-start;">
+            <view class="bgItem e4d3bd {{backgroundClass == 'bg-e4d3bd' ? 'choose' : ''}}" data-id="bg-e4d3bd" catchtap='changeBackgroundAndColor'></view>
+            <view class="bgItem ece8d4 {{backgroundClass == 'bg-ece8d4' ? 'choose' : ''}}" data-id="bg-ece8d4" catchtap='changeBackgroundAndColor'></view>
+            <view class="bgItem cbd6b5 {{backgroundClass == 'bg-cbd6b5' ? 'choose' : ''}}" data-id="bg-cbd6b5" catchtap='changeBackgroundAndColor'></view>
+            <view class="bgItem b9d3bd {{backgroundClass == 'bg-b9d3bd' ? 'choose' : ''}}" data-id="bg-b9d3bd" catchtap='changeBackgroundAndColor'></view>
+            <view class="bgItem bg292930 {{backgroundClass == 'bg-292930' ? 'choose' : ''}}" data-id="bg-292930" catchtap='changeBackgroundAndColor'></view>
+          </view>
+      </view>
+  </view>
+</view>

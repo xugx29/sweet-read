@@ -4,8 +4,8 @@
       <view class="cost item">应付总额：<text class="number themeFontColor">12 </text>阅豆</view>
       <view class="balance item">当前余额：<text class="number themeFontColor">8</text> 阅豆</view>
       <view class="operation item">
-          <button class="themeBgColor" data-id="{{balance}}" wx:if="{{balance == 1}}">购买章节</button>
-          <button class="themeBgColor" data-id="{{balance}}" wx:else>余额不足，请充值</button>
+          <button class="themeBgColor" bindtap='toRead' data-id="{{balance}}" wx:if="{{balance == 1}}">购买章节</button>
+          <button class="themeBgColor" bindtap='toRead' data-id="{{balance}}" wx:else>余额不足，请充值</button>
       </view>
   </view>
 </view>

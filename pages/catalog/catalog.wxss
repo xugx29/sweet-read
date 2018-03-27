@@ -33,7 +33,7 @@
   border-top:1rpx solid #ccc;
   justify-content:space-between;
   align-items: center;
-  height:80rpx;
+  height:90rpx;
 }
 .catalogsList{
   margin-top:30rpx;
@@ -42,7 +42,7 @@
     border-bottom:1rpx solid #ccc;
 }
 .itemTitle{
-  font-size:.88em;
+  font-size:.9em;
   overflow: hidden;
 text-overflow:ellipsis;
 white-space: nowrap;

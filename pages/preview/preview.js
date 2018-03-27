@@ -7,7 +7,14 @@ Page({
   data: {
     balance: -1, // 1 余额够，0 余额不够
   },
-
+  toRead : function(){
+    wx.redirectTo({
+      url: '../article/article',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
