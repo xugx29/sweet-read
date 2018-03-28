@@ -9,4 +9,26 @@
       <text class="searchButton">搜索</text>
   
     </view>
+
+     <scroll-view class="listContainer" scroll-y>
+         <view class="listItem" wx:for-index="idx" wx:for="{{searchResult}}">
+           <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
+              <view class="itemImage">
+                  <image mode="widthFix" src="{{item.imgUrl}}"></image>
+              </view>
+              <view class="itemContent">
+                  <view class="articleTitle"><text class="titleContent">{{item.title}}</text></view>
+                  <text class="articleDesc">{{item.desc}}</text>
+                  <view class="bookInfo"> 
+                    <text class="articleAuthor">{{item.author}}</text>
+                    <view class="count">
+                      <text class="type">古代言情</text>
+                      <text class="countNum">1.293万</text>
+                    </view>
+                  </view>
+              </view>
+           </view>
+        </view>
+      </scroll-view> 
+
 </view>
