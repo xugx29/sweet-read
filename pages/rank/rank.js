@@ -1,4 +1,5 @@
-var app = getApp()
+var app = getApp();
+const utils = require('../../utils/util.js');
 Page({
   data: {
     currentTab: 0,
@@ -181,7 +182,10 @@ Page({
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-
+    // /mpApi/top
+    utils.utilRequest('/mpApi/top', { type : 0},'post',function(){
+      console.log(1);
+    })
   },
   //滑动切换
   swiperTab: function (e) {
