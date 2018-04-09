@@ -27,16 +27,15 @@ const setSortEncryption = (parameter, timeStamp) => {
     newParameter[key] = parameter[key]
   }
   let sign = '1832df87387a0404690136cac7c1axiaocx-' + JSON.stringify(newParameter) + '-' + timeStamp;
-  console.log(sign)
-  return md5(sign)
+  console.log(sign, timeStamp, md5(sign).toUpperCase());
+  return md5(sign).toUpperCase()
 }
 
 const utilRequest = (url, params, method, callback) => {
   if(!!params){
     const timeStamp = new Date().getTime();
-    console.log(timeStamp)
-    params['time'] = timeStamp;
-    let sign = setSortEncryption(params, timeStamp);
+    let sign = setSortEncryption(params,timeStamp);
+    params['timeStamp'] = timeStamp.toString();
     params['sign'] = sign;
   }
   wx.request({

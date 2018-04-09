@@ -183,7 +183,7 @@ Page({
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     // /mpApi/top
-    utils.utilRequest('/mpApi/top', { type : 0},'post',function(){
+    utils.utilRequest('/mpApi/top', { type : 0},'get',function(){
       console.log(1);
     })
   },
