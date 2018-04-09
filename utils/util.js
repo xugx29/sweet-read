@@ -1,5 +1,5 @@
 const md5 = require('js-md5');
-const URL = 'http://mp.sweetread.net/weixinmp';
+const URL = 'https://mp.sweetread.net/weixinmp';
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -26,14 +26,16 @@ const setSortEncryption = (parameter, timeStamp) => {
   for (let key of sortArr) {
     newParameter[key] = parameter[key]
   }
-  let sign = 'FA2z9RQ9pAZbXHrqJ20T5R4COeE9x3zW-' + JSON.stringify(newParameter) + '-' + timeStamp;
+  let sign = '1832df87387a0404690136cac7c1axiaocx-' + JSON.stringify(newParameter) + '-' + timeStamp;
+  console.log(sign)
   return md5(sign)
 }
 
 const utilRequest = (url, params, method, callback) => {
   if(!!params){
-    const timeStamp = new Date().getTime;
-    params['timeStamp'] = timeStamp;
+    const timeStamp = new Date().getTime();
+    console.log(timeStamp)
+    params['time'] = timeStamp;
     let sign = setSortEncryption(params, timeStamp);
     params['sign'] = sign;
   }
