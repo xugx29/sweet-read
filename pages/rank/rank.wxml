@@ -13,13 +13,13 @@
                   <image mode="widthFix" src="{{item.cover}}"></image>
               </view>
               <view class="itemContent">
-                  <view class="articleTitle"><text class="titleContent">{{item.title}}</text></view>
-                  <text class="articleDesc">{{item.desc}}</text>
+                  <view class="articleTitle"><text class="titleContent">{{item.bookName}}</text></view>
+                  <text class="articleDesc">{{item.summary}}</text>
                   <view class="bookInfo"> 
-                    <text class="articleAuthor">{{item.author}}</text>
+                    <text class="articleAuthor">{{item.authorName}}</text>
                     <view class="count">
-                      <text class="type">古代言情</text>
-                      <text class="countNum">1.293万</text>
+                      <text class="type">{{item.cname}}</text>
+                      <text class="countNum">{{item.totalCount/10000}}万</text>
                     </view>
                   </view>
               </view>
