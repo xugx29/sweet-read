@@ -1,6 +1,6 @@
 <view class="bookInfoContainer">
     <view class="bookMainInfo">
-        <image class="bookPic" mode="widthFix" src="../images/img4.jpg"></image>
+        <image class="bookPic" mode="widthFix" src="{{bookInfo.cover}}"></image>
         <view class="bookInfo">
             <text class="title">{{bookInfo.bookName}}</text>
             <text class="author">{{bookInfo.authorName}}</text>
