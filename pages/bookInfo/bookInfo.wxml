@@ -2,30 +2,31 @@
     <view class="bookMainInfo">
         <image class="bookPic" mode="widthFix" src="../images/img4.jpg"></image>
         <view class="bookInfo">
-            <text class="title">爱你，依旧如初</text>
-            <text class="author">木木雨</text>
+            <text class="title">{{bookInfo.bookName}}</text>
+            <text class="author">{{bookInfo.authorName}}</text>
 
             <view class="fontNum">
-              <text class="big">55.34</text>
+              <text class="big">{{bookInfo.totalCount/10000}}</text>
               <text class="small">万字</text>
             </view>
 
             <view class="clickNum">
-              <text class="big">55.34</text>
+              <text class="big">{{bookInfo.clickCount/10000}}</text>
               <text class="small">万次点击</text>
             </view>
 
             <view class="fansNum">
-              <text class="big">2207</text>
+              <text class="big">{{bookInfo.fansCount}}</text>
               <text class="small">书迷</text>
-              <text class="status">已完结</text>
+              <text wx-if="{{bookInfo.isFinish == 0}}" class="status">未完结</text>
+              <text wx-if="{{bookInfo.isFinish != 0}}" class="status">已完结</text>
             </view>
 
         </view>
     </view>
     <!-- 三个按钮 -->
     <view class="buttonArea">
-        <navigator class="toRead themeBgColor" hover-class='none' url="/pages/catalog/catalog">开始阅读</navigator>
+        <navigator class="toRead themeBgColor" hover-class='none' url="/pages/catalog/catalog?bookId={{bookId}}">开始阅读</navigator>
         <navigator class="toBookShelf dashedButton"  hover-class='none'>加入书架</navigator>
         <navigator class="autoFocus dashedButton" hover-class='none'>自动订阅</navigator>
     </view>
@@ -37,7 +38,7 @@
        </view>
 
        <view class="descContent" style="{{showMore ? 'height: auto' : '' }}">
-        <rich-text nodes="{{descData}}"></rich-text>
+        <rich-text nodes="{{bookInfo.summary}}"></rich-text>
           <image class="arrowUp" bindtap='toggleShowMore' style="{{!showMore ? 'display:block' : ''}}" mode="widthFix" src="../images/arrowDown.png"></image>
           <image class="arrowUp" bindtap='toggleShowMore' style="{{showMore ? 'display:block' : ''}}" mode="widthFix" src="../images/arrowUp.png"></image>
        </view> 

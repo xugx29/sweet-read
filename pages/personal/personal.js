@@ -1,4 +1,5 @@
-const app = getApp()
+const app = getApp();
+const utils = require('../../utils/util.js');
 Page({
 
   /**
@@ -12,7 +13,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var userId = wx.getStorageSync('userId');
+    if(!userId){
+      
+    }else{
+      utils.utilRequest('/mpApi/userinfo', {userId:userId}, 'get', function (data) {
+        console.log(data);
+      })
+    }
   },
 
   /**

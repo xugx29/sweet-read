@@ -2,96 +2,28 @@
     <view class="stacksBigType">
         <view class="stackBigTitle">女生</view>
         <view class="stacksSmallTypeContainer">
-            <view class="items" data-type="现代言情" bindtap='toInfo'>
-              <image src="../images/shuku.jpg" mode="widthFix"></image>
+
+            <navigator hover-class='none' wx:for-index="key" url='/pages/stackInfo/stackInfo?id={{item.cid}}&type={{item.cname}}' wx:for="{{mc}}" class="items" data-type="{{item.cname}}">
+              <image src="{{mcCover[key]}}" mode="widthFix"></image>
               <view class="typeInfo">
-                  <text class="typeName">现代言情</text>
-                  <text class="typeBookNum">5142本</text>
+                  <text class="typeName">{{item.cname}}</text>
+                  <text class="typeBookNum">{{item.count}}本</text>
               </view>
-            </view>
-            <view class="items" data-type="现代言情" bindtap='toInfo'>
-              <image src="../images/shuku.jpg" mode="widthFix"></image>
-              <view class="typeInfo">
-                  <text class="typeName">现代言情</text>
-                  <text class="typeBookNum">5142本</text>
-              </view>
-            </view>
-            <view class="items" data-type="现代言情" bindtap='toInfo'>
-              <image src="../images/shuku.jpg" mode="widthFix"></image>
-              <view class="typeInfo">
-                  <text class="typeName">现代言情</text>
-                  <text class="typeBookNum">5142本</text>
-              </view>
-            </view>
-            <view class="items" data-type="现代言情" bindtap='toInfo'>
-              <image src="../images/shuku.jpg" mode="widthFix"></image>
-              <view class="typeInfo">
-                  <text class="typeName">现代言情</text>
-                  <text class="typeBookNum">5142本</text>
-              </view>
-            </view>
-            <view class="items" data-type="现代言情" bindtap='toInfo'>
-              <image src="../images/shuku.jpg" mode="widthFix"></image>
-              <view class="typeInfo">
-                  <text class="typeName">现代言情</text>
-                  <text class="typeBookNum">5142本</text>
-              </view>
-            </view>
-            <view class="items" data-type="现代言情" bindtap='toInfo'>
-              <image src="../images/shuku.jpg" mode="widthFix"></image>
-              <view class="typeInfo">
-                  <text class="typeName">现代言情</text>
-                  <text class="typeBookNum">5142本</text>
-              </view>
-            </view>
+            </navigator>
+
         </view>
     </view>
 
      <view class="stacksBigType">
         <view class="stackBigTitle">男生</view>
         <view class="stacksSmallTypeContainer">
-            <view class="items" data-type="现代言情" bindtap='toInfo'>
-              <image src="../images/shuku.jpg" mode="widthFix"></image>
+             <navigator hover-class='none' wx:for-index="idx" url='/pages/stackInfo/stackInfo?id={{item.cid}}&type={{item.cname}}' wx:for="{{fc}}" class="items" data-type="{{item.cname}}">
+              <image src="{{fcCover[idx]}}" mode="widthFix"></image>
               <view class="typeInfo">
-                  <text class="typeName">现代言情</text>
-                  <text class="typeBookNum">5142本</text>
+                  <text class="typeName">{{item.cname}}</text>
+                  <text class="typeBookNum">{{item.count}}本</text>
               </view>
-            </view>
-            <view class="items" data-type="现代言情" bindtap='toInfo'>
-              <image src="../images/shuku.jpg" mode="widthFix"></image>
-              <view class="typeInfo">
-                  <text class="typeName">现代言情</text>
-                  <text class="typeBookNum">5142本</text>
-              </view>
-            </view>
-            <view class="items" data-type="现代言情" bindtap='toInfo'>
-              <image src="../images/shuku.jpg" mode="widthFix"></image>
-              <view class="typeInfo">
-                  <text class="typeName">现代言情</text>
-                  <text class="typeBookNum">5142本</text>
-              </view>
-            </view>
-            <view class="items" data-type="现代言情" bindtap='toInfo'>
-              <image src="../images/shuku.jpg" mode="widthFix"></image>
-              <view class="typeInfo">
-                  <text class="typeName">现代言情</text>
-                  <text class="typeBookNum">5142本</text>
-              </view>
-            </view>
-            <view class="items" data-type="现代言情" bindtap='toInfo'>
-              <image src="../images/shuku.jpg" mode="widthFix"></image>
-              <view class="typeInfo">
-                  <text class="typeName">现代言情</text>
-                  <text class="typeBookNum">5142本</text>
-              </view>
-            </view>
-            <view class="items" data-type="现代言情" bindtap='toInfo'>
-              <image src="../images/shuku.jpg" mode="widthFix"></image>
-              <view class="typeInfo">
-                  <text class="typeName">现代言情</text>
-                  <text class="typeBookNum">5142本</text>
-              </view>
-            </view>
+            </navigator>
         </view>
     </view>
 </view>

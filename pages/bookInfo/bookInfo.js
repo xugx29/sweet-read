@@ -1,4 +1,5 @@
-const app = getApp()
+const app = getApp();
+const utils = require('../../utils/util.js');
 Page({
 
   /**
@@ -6,6 +7,8 @@ Page({
    */
   data: {
     showMore : false,
+    bookInfo : {},
+    bookId : 0,
     tuijian: [  // 推荐列表
       {
         title: '倾世妖记',
@@ -62,7 +65,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      bookId: options.id
+    })
+    var _this = this;
+    utils.utilRequest('/mpApi/bookinfo',{bookId : options.id},'get',function(data){
+      _this.setData({
+        bookInfo : data.data
+      })
+    })
   },
 
   /**

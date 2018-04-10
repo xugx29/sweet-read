@@ -27,6 +27,7 @@ const setSortEncryption = (parameter, timeStamp) => {
     newParameter[key] = parameter[key]
   }
   let sign = '1832df87387a0404690136cac7c1axiaocx-' + JSON.stringify(newParameter) + '-' + timeStamp;
+  console.log(sign)
   return md5(sign).toUpperCase()
 }
 

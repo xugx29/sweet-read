@@ -2,29 +2,29 @@
     <view class="allTypes searchLine">
       <text class="desc">全部:</text>
       <view>
-        <text class="item {{index == typeId ? 'themeFontColor' : ''}}" bindtap='selectItem' data-id="{{index}}" data-type="type" wx:for="{{typesArr}}">{{item}}</text>
+        <text class="item {{index == typeId ? 'themeFontColor' : ''}}" bindtap='selectItem' data-id="{{index}}" data-type="type" data-item="{{item}}" wx:for="{{typesArr}}">{{item}}</text>
       </view>
     </view>
      <view class="allTags searchLine">
       <text class="desc">标签:</text>
       <view>
-        <text class="item {{index == tagId ? 'themeFontColor' : ''}}" bindtap='selectItem' data-id="{{index}}" data-type="tag" wx:for="{{tagsArr}}">{{item}}</text>
+        <text class="item {{index == tagId ? 'themeFontColor' : ''}}" bindtap='selectItem' data-id="{{index}}" data-item="{{item}}" data-type="tag" wx:for="{{tagsArr}}">{{item}}</text>
       </view>
     </view>
     <scroll-view scroll-y>
       <view class="listItem" wx:for-index="idx" wx:for="{{resultArr}}">
           <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
             <view class="itemImage">
-                <image mode="widthFix" src="{{item.imgUrl}}"></image>
+                <image mode="widthFix" src="{{item.cover}}"></image>
             </view>
             <view class="itemContent">
-                <view class="articleTitle"><text class="titleContent">{{item.title}}</text></view>
-                <text class="articleDesc">{{item.desc}}</text>
+                <view class="articleTitle"><text class="titleContent">{{item.bookName}}</text></view>
+                <text class="articleDesc">{{item.summary}}</text>
                 <view class="bookInfo"> 
-                  <text class="articleAuthor">{{item.author}}</text>
+                  <text class="articleAuthor">{{item.authorName}}</text>
                   <view class="count">
-                    <text class="type">{{item.bookType}}</text>
-                    <text class="countNum">1.293万</text>
+                    <text class="type">{{item.cname}}</text>
+                    <text class="countNum">{{totalCount/10000}}万</text>
                   </view>
                 </view>
             </view>

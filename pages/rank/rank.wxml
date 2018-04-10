@@ -7,7 +7,7 @@
     </view>
     <view class="tabContainer">
         <view wx:if="{{currentTab == 0}}">
-         <view class="listItem" wx:for-index="idx" wx:for="{{rankArr1}}">
+         <navigator hover-class='none' url='/pages/bookInfo/bookInfo?id={{item.bookId}}' class="listItem" wx:for-index="idx" wx:for="{{rankArr1}}">
            <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
               <view class="itemImage">
                   <image mode="widthFix" src="{{item.cover}}"></image>
@@ -24,10 +24,10 @@
                   </view>
               </view>
            </view>
-        </view>
+        </navigator>
       </view>
       <view wx:if="{{currentTab == 1}}">
-        <view class="listItem" wx:for-index="idx" wx:for="{{rankArr2}}">
+        <navigator hover-class='none' url='/pages/bookInfo/bookInfo?id={{item.bookId}}' class="listItem" wx:for-index="idx" wx:for="{{rankArr2}}">
             <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
               <view class="itemImage">
                   <image mode="widthFix" src="{{item.cover}}"></image>
@@ -44,10 +44,10 @@
                   </view>
               </view>
             </view>
-          </view>
+          </navigator>
       </view>
       <view wx:if="{{currentTab == 2}}">
-        <view class="listItem" wx:for-index="idx" wx:for="{{rankArr3}}">
+        <navigator hover-class='none' url='/pages/bookInfo/bookInfo?id={{item.bookId}}' class="listItem" wx:for-index="idx" wx:for="{{rankArr3}}">
             <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
               <view class="itemImage">
                   <image mode="widthFix" src="{{item.cover}}"></image>
@@ -64,10 +64,10 @@
                   </view>
               </view>
             </view>
-          </view>
+          </navigator>
       </view>
       <view wx:if="{{currentTab == 3}}">
-        <view class="listItem" wx:for-index="idx" wx:for="{{rankArr4}}">
+        <navigator hover-class='none' url='/pages/bookInfo/bookInfo?id={{item.bookId}}' class="listItem" wx:for-index="idx" wx:for="{{rankArr4}}">
             <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
               <view class="itemImage">
                   <image mode="widthFix" src="{{item.cover}}"></image>
@@ -85,7 +85,7 @@
                   </view>
               </view>
             </view>
-          </view>
+          </navigator>
       </view>
     </view>
 

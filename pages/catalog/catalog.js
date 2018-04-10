@@ -1,10 +1,14 @@
-const app = getApp()
+const app = getApp();
+const utils = require('../../utils/util.js');
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     asc : 1,
+    bookId : 0,
+    page : 0, // 分页页码
+    orderType: 0, // 0正序 1倒序
     catalogs : [
       '第一章：阿斯顿和勤务i多哈赛',
       '第二章：阿斯顿和勤务i多哈赛',
@@ -37,7 +41,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      bookId: options.bookId
+    })
+    utils.utilRequest('/mpApi/chapterlist',{bookId : options.bookId,page : this.data.page,orderType : this.data.orderType},'get',function(data){
+      console.log(data);
+    })
   },
 
   /**

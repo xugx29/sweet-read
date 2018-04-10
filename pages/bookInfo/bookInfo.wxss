@@ -103,6 +103,7 @@
   display: block;
   height:100%;
   padding-right:40rpx;
+  overflow:hidden;
 }
 .descContent p{
   padding-left:20rpx;
