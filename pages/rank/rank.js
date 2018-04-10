@@ -29,12 +29,10 @@ Page({
       })
     })
     utils.utilRequest('/mpApi/top', {type: 3}, 'get', function (res) {
-      console.log(JSON.parse(res));
       _this.setData({
-        rankArr4: res
+        rankArr4: res.data
       })
     })
-    console.log(this.data)
   },
   //滑动切换
   swiperTab: function (e) {
