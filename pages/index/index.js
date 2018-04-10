@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+const utils = require('../../utils/util.js');
 Page({
   data: {
     defaultSearchKeyWords: '倾世妖妃',
@@ -290,7 +290,86 @@ Page({
       url: '../search/search?keywords=' + keywords,
     })
   },
-  onLoad: function () {
+  login (userInfo){
+    wx.login({
+      success : res => {
+        utils.utilRequest('/mpApi/getopenid',{code :res.code},'get',function(data){
+          console.log(data);
+          var openid = data.openid;
+          utils.utilRequest('/mpApi/login', { openid: openid, logo: userInfo.avatarUrl, nickname: userInfo.nickName}, 'get', function (result) {
+            console.log(result);
+          })
+        })
+      }
+    })
+  },
+  onShow: function () {
+    var _this = this;
+    wx.getSetting({
+      success : result => {        
+        if(JSON.stringify(result.authSetting) == '{}'){
+          console.log(1)
+          return wx.getUserInfo({
+            success : userInfo => {
+              console.log(userInfo);
+              wx.setStorageSync('userInfo', userInfo.userInfo);
+              _this.login(userInfo.userInfo)
+            }
+          })
+        }else{
+          if (!result.authSetting['scope.userInfo']) {
+            console.log(2)
+            wx.showModal({
+              title: '用户未授权',
+              // content: '如需正常使用阅读记录功能，请按确定并在授权管理中选中“用户信息”，然后点按确定。最后再重新进入小程序即可正常使用。',
+              content: '如需正常使用甜悦读各项功能，请按确定并在授权管理中选中“用户信息”',
+              showCancel: false,
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定')
+                  wx.openSetting({
+                    success: setting => {
+                      console.log(setting)
+                      if (setting.authSetting['scope.userInfo'] == true) {
+                        return wx.getUserInfo({
+                          success: userInfo => {
+                            wx.setStorageSync('userInfo', userInfo.userInfo)
+                          }
+                        })
+                      }
+                    }
+                  })
+                  // wx.getSetting({
+                  //   success : result => {
+                  //     if (!result.authSetting['scope.userInfo']) {
+                  //       return wx.getUserInfo({
+                  //         success: userInfo => {
+                  //           console.log(userInfo);
+                  //           wx.setStorageSync('userInfo', userInfo.userInfo);
+                  //           _this.login(userInfo.userInfo)
+                  //         }
+                  //       })
+                  //     }
+                  //   }
+                  // })
+                }
+              }
+            })
+          }else{
+            if (wx.getStorageSync('userInfo') == '' || wx.getStorageSync('userId') == ''){
+              return wx.getUserInfo({
+                success: userInfo => {
+                  console.log(userInfo);
+                  wx.setStorageSync('userInfo', userInfo.userInfo);
+                  _this.login(userInfo.userInfo)
+                }
+              })
+            }
+          }
+        }
+      }
+    })
    
+
   }
 })

@@ -1,46 +1,12 @@
 <view class="payContainer">
   <view class="payItemsContainer">
-    <view class="items">
-        <image class="hot" src="../images/hot.jpg" mode="widthFix"></image>
-        <text class="cny">30元</text>
-        <text class="sweet">2850甜豆</text>
-        <text class="gift themeFontColor">(赠950甜豆)</text>
-    </view>
-  
-    <view class="items">
-        <image class="hot" src="../images/hot.jpg" mode="widthFix"></image>
-        <text class="cny">30元</text>
-        <text class="sweet">2850甜豆</text>
-        <text class="gift themeFontColor">(赠950甜豆)</text>
+    <view class="items" wx:for="{{payLevel}}" wx:for-index="idx">
+        <image wx-if="{{item.isHot == 1}}" class="hot" src="../images/hot.jpg" mode="widthFix"></image>
+        <text class="cny">{{item.amount}}元</text>
+        <text class="sweet">{{item.count}}甜豆</text>
+        <text wx-if="{{item.giftcount != 0}}" class="gift themeFontColor">(赠{{item.giftcount}}甜豆)</text>
     </view>
 
-    <view class="items">
-        <image class="hot" src="../images/hot.jpg" mode="widthFix"></image>
-        <text class="cny">30元</text>
-        <text class="sweet">2850甜豆</text>
-        <text class="gift themeFontColor">(赠950甜豆)</text>
-    </view>
-
-    <view class="items">
-        <image class="hot" src="../images/hot.jpg" mode="widthFix"></image>
-        <text class="cny">30元</text>
-        <text class="sweet">2850甜豆</text>
-        <text class="gift themeFontColor">(赠950甜豆)</text>
-    </view>
-
-    <view class="items">
-        <image class="hot" src="../images/hot.jpg" mode="widthFix"></image>
-        <text class="cny">30元</text>
-        <text class="sweet">2850甜豆</text>
-        <text class="gift themeFontColor">(赠950甜豆)</text>
-    </view>
-
-    <view class="items">
-        <image class="hot" src="../images/hot.jpg" mode="widthFix"></image>
-        <text class="cny">30元</text>
-        <text class="sweet">2850甜豆</text>
-        <text class="gift themeFontColor">(赠950甜豆)</text>
-    </view>
   </view>
 
   <view class="noticeContent">

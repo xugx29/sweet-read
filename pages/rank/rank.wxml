@@ -10,7 +10,7 @@
          <view class="listItem" wx:for-index="idx" wx:for="{{rankArr1}}">
            <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
               <view class="itemImage">
-                  <image mode="widthFix" src="{{item.imgUrl}}"></image>
+                  <image mode="widthFix" src="{{item.cover}}"></image>
               </view>
               <view class="itemContent">
                   <view class="articleTitle"><text class="titleContent">{{item.title}}</text></view>

@@ -27,7 +27,6 @@ const setSortEncryption = (parameter, timeStamp) => {
     newParameter[key] = parameter[key]
   }
   let sign = '1832df87387a0404690136cac7c1axiaocx-' + JSON.stringify(newParameter) + '-' + timeStamp;
-  console.log(sign, timeStamp, md5(sign).toUpperCase());
   return md5(sign).toUpperCase()
 }
 
@@ -42,15 +41,12 @@ const utilRequest = (url, params, method, callback) => {
     url: URL + url,
     data : params,
     method : method,
-    header: {
-      'content-type': 'application/json' // 默认值
-    },
-    success: res => {
+    success: (res) => {
       // if (!hideLoading) {
       //   wx.hideLoading()
       // }
       if (!!callback) {
-        callback(res);
+        callback(res.data);
       }
     },
     fail: res => {
