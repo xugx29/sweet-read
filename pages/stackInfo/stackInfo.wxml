@@ -12,7 +12,7 @@
       </view>
     </view>
     <scroll-view scroll-y bindscrolltolower='getMoreData' lower-threshold="100" scroll-top="{{scrollTop}}">
-      <view class="listItem" wx:for-index="idx" wx:for="{{resultArr}}">
+      <navigator hover-class='none' url='/pages/bookInfo/bookInfo?id={{item.bookId}}' class="listItem" wx:for-index="idx" wx:for="{{resultArr}}">
           <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
             <view class="itemImage">
                 <image mode="widthFix" src="{{item.cover}}"></image>
@@ -29,6 +29,6 @@
                 </view>
             </view>
           </view>
-        </view>
+        </navigator>
     </scroll-view>
 </view>

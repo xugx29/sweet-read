@@ -35,11 +35,27 @@ Page({
       page : 1
     })
     if(selectType == 'type'){
+      if(id == this.data.typeId){
+        this.setData({
+          typeId: -1,
+          type: ''
+        })  
+        this.getData();
+        return;
+      }
       this.setData({
         typeId : id,
         type: event.currentTarget.dataset.item
       })
     }else{
+      if (id == this.data.tagId) {
+        this.setData({
+          tagId: -1,
+          tag: ''
+        })
+        this.getData();
+        return;
+      }
       this.setData({
         tagId: id,
         tag: event.currentTarget.dataset.item
