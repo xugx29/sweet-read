@@ -31,7 +31,12 @@ const setSortEncryption = (parameter, timeStamp) => {
   return md5(sign).toUpperCase()
 }
 
-const utilRequest = (url, params, method, callback) => {
+const utilRequest = (url, params, method, callback, hideLoading) => {
+  if (!hideLoading) {
+    wx.showLoading({
+      title: 'Loading',
+    })
+  }
   if(!!params){
     const timeStamp = new Date().getTime();
     let sign = setSortEncryption(params,timeStamp);
@@ -43,17 +48,17 @@ const utilRequest = (url, params, method, callback) => {
     data : params,
     method : method,
     success: (res) => {
-      // if (!hideLoading) {
-      //   wx.hideLoading()
-      // }
+      if (!hideLoading) {
+        wx.hideLoading()
+      }
       if (!!callback) {
         callback(res.data);
       }
     },
     fail: res => {
-      // if (!hideLoading) {
-      //   wx.hideLoading()
-      // }
+      if (!hideLoading) {
+        wx.hideLoading()
+      }
       // if (!fail) {
       //   wx.showToast({
       //     title: '网络连接异常，请检查网络',

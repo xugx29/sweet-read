@@ -37,12 +37,12 @@ Page({
         typeId : id,
         type: event.currentTarget.dataset.item
       })
-      return;
+    }else{
+      this.setData({
+        tagId: id,
+        tag: event.currentTarget.dataset.item
+      })
     }
-    this.setData({
-      tagId: id,
-      tag: event.currentTarget.dataset.item
-    })
     this.getData();
   },
   getData : function(cid){
