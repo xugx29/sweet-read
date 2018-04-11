@@ -35,6 +35,7 @@ const utilRequest = (url, params, method, callback, hideLoading) => {
   if (!hideLoading) {
     wx.showLoading({
       title: 'Loading',
+      mask:true
     })
   }
   if(!!params){

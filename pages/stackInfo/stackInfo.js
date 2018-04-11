@@ -12,12 +12,14 @@ Page({
     this.getData(options.id)
   },
   data : {
+    scrollTop:0,
     typeId: -1,
     tagId:-1,
     type : '',
     tag : '',
     cid : -1,
     page : 1,
+    getMoreDataTag : 1,
     typesArr : [
       '热门', '免费','VIP','连载','完本'
     ],
@@ -47,13 +49,28 @@ Page({
   },
   getData : function(cid){
     if(!cid) cid = this.data.id;
-    console.log(cid);
     var _this = this;
     utils.utilRequest('/mpApi/booklist', {cid : this.data.cid,type : this.data.type,tag : this.data.tag,page : this.data.page}, 'get',function(data){
       _this.setData({
+        scrollTop:0,
+        getMoreDataTag: 1,
         resultArr : data.data,
         page : _this.data.page + 1
       })
+    })
+  },
+  getMoreData : function(cid){
+    if (this.data.getMoreDataTag == 0) return; // 禁止加载
+    if (!cid) cid = this.data.id;
+    var _this = this;
+    utils.utilRequest('/mpApi/booklist', { cid: this.data.cid, type: this.data.type, tag: this.data.tag, page: this.data.page }, 'get', function (data) {
+      if(!data.data) return;
+      _this.setData({
+        getMoreDataTag: data.data.length < 20 ? 0 : 1,
+        resultArr: _this.data.resultArr.concat(data.data),
+        page: _this.data.page + 1
+      })
+      console.log(data.data)
     })
   }
 })

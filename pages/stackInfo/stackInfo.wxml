@@ -11,7 +11,7 @@
         <text class="item {{index == tagId ? 'themeFontColor' : ''}}" bindtap='selectItem' data-id="{{index}}" data-item="{{item}}" data-type="tag" wx:for="{{tagsArr}}">{{item}}</text>
       </view>
     </view>
-    <scroll-view scroll-y>
+    <scroll-view scroll-y bindscrolltolower='getMoreData' lower-threshold="100" scroll-top="{{scrollTop}}">
       <view class="listItem" wx:for-index="idx" wx:for="{{resultArr}}">
           <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
             <view class="itemImage">
@@ -19,12 +19,12 @@
             </view>
             <view class="itemContent">
                 <view class="articleTitle"><text class="titleContent">{{item.bookName}}</text></view>
-                <text class="articleDesc">{{item.summary}}</text>
+                <rich-text class="articleDesc" nodes="{{item.summary}}"></rich-text>
                 <view class="bookInfo"> 
                   <text class="articleAuthor">{{item.authorName}}</text>
                   <view class="count">
                     <text class="type">{{item.cname}}</text>
-                    <text class="countNum">{{totalCount/10000}}万</text>
+                    <text class="countNum">{{item.totalCount/10000}}万</text>
                   </view>
                 </view>
             </view>
