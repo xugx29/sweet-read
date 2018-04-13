@@ -17,6 +17,7 @@ scroll-view{
   display: flex;
   flex-direction: column;
   align-items: center;
+  width:490rpx;
   /* justify-content: center; */
 }
 .recordInfo text{
@@ -28,7 +29,10 @@ scroll-view{
 }
 .recordTitle{
   color:333;
-  font-weight: bold
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .recordContent{
   font-size:.85em;

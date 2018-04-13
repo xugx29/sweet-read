@@ -1,14 +1,16 @@
+<wxs module="detailDate" src="../../utils/detail.wxs"></wxs>
 <view class="payRecordContainer">
     <view style="text-align:center;margin:30rpx 0;font-size:.9em" wx:if="{{records.length == 0}}">暂无充值记录</view>
     <scroll-view wx:else scroll-y bindscrolltolower='getData' lower-threshold="200">
-      <view class="item">
+      <view class="item" wx:for-index="idx" wx:for="{{records}}">
         <view class="line1 line">
           <text class="desc">充值</text>
-          <text class="amount themeFontColor">+20.00元</text>
+          <text class="amount themeFontColor">+{{item.amount}}元</text>
         </view>
         <view class="line2 line">
-          <text class="time">2017-06-19 | 15:23</text>
-          <text class="status themeFontColor">充值完成</text>
+          <text class="time">{{detailDate(item.datetime)}}</text>
+          <text wx:if="{{item.status == 1}}" class="status themeFontColor">充值完成</text>
+                    <text wx:else class="status themeFontColor">未完成</text>
         </view>
     </view>
     </scroll-view>
