@@ -297,7 +297,6 @@ Page({
           console.log(data);
           var openid = data.openid;
           utils.utilRequest('/mpApi/login', { openid: openid, logo: userInfo.avatarUrl, nickname: userInfo.nickName}, 'get', function (result) {
-            console.log(result);
             wx.setStorageSync('userId', result.data.userId);
           })
         })

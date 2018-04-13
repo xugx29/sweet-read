@@ -6,19 +6,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-   
+    userInfoByApi : {},
+    userInfo : wx.getStorageSync('userInfo')
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var _this = this;
     var userId = wx.getStorageSync('userId');
     if(!userId){
       
     }else{
       utils.utilRequest('/mpApi/userinfo', {userId:userId}, 'get', function (data) {
-        console.log(data);
+        _this.setData({
+          userInfoByApi : data.data
+        })
       })
     }
   },

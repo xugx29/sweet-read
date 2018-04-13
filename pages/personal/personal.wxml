@@ -1,7 +1,7 @@
 <view class="personContainer">
   <view class="personalInfo">
-      <view class="profilePicture"><image src="../images/profilePicture.jpg" mode='widthFix'></image></view>
-      <view class="nickname">北海_BA1aasf</view>
+      <view class="profilePicture"><image src="{{userInfo.avatarUrl}}" mode='widthFix'></image></view>
+      <view class="nickname">{{userInfoByApi.name}}</view>
   </view>
 
   <view class="featureList">
@@ -9,7 +9,7 @@
       <view class="featureItem account">
         <view class="desc"><image mode='widthFix' class="icon" src="../images/zhanghu.jpg"></image><text class="itemName">账户</text></view>
         <view class="feature">
-          <text class="balanceInfo">余额:12</text>
+          <text class="balanceInfo">余额:{{userInfoByApi.count}}</text>
           <navigator url="/pages/pay/pay">
             <button class="recharge themeBgColor">充值</button>
           </navigator>

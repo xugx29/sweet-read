@@ -6,12 +6,12 @@
             <text class="author">{{bookInfo.authorName}}</text>
 
             <view class="fontNum">
-              <text class="big">{{bookInfo.totalCount/10000}}</text>
+              <text class="big">{{!bookInfo.totalCount ? '' : bookInfo.totalCount/10000}}</text>
               <text class="small">万字</text>
             </view>
 
             <view class="clickNum">
-              <text class="big">{{bookInfo.clickCount/10000}}</text>
+              <text class="big">{{!bookInfo.clickCount ? '' : bookInfo.clickCount/10000}}</text>
               <text class="small">万次点击</text>
             </view>
 

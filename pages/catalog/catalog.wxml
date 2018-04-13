@@ -2,15 +2,15 @@
   <view class="desc">
       <text class="title">全部章节</text>
       <view class="sort">
-          <text bindtap='changeSort' data-type="asc" class="asc {{asc == 1 ? 'choose' : ''}}">正序</text>
-          <text bindtap='changeSort' data-type="desc" class="desc {{asc != 1 ? 'choose' : ''}}">倒序</text>
+          <text bindtap='changeSort' data-type="asc" class="asc {{orderType == 0 ? 'choose' : ''}}">正序</text>
+          <text bindtap='changeSort' data-type="desc" class="desc {{orderType != 0 ? 'choose' : ''}}">倒序</text>
       </view>
   </view>
 
-  <view class="catalogsList">
-    <view class="item" bindtap='toReadBook' data-cost="20" data-balance="10" wx:for="{{catalogs}}">
-      <text class="itemTitle">{{item}}</text>
-      <image class="lockIcon" mode='widthFix' src="../images/lock.png"></image>
-    </view>
-  </view>
+  <scroll-view class="catalogsList" scroll-y bindscrolltolower='getData' lower-threshold="80" scroll-top="{{scrollTop}}">
+    <navigator url="/pages/preview/preview?chapterId={{item.chapterId}}&cost={{item.count}}" class="item" wx:for="{{catalogs}}">
+      <text class="itemTitle" data-id="{{item.order}}">{{item.chapterName}}</text>
+      <image wx:if="{{item.isVip == 1}}" class="lockIcon" mode='widthFix' src="../images/lock.png"></image>
+    </navigator>
+  </scroll-view>
 </view>

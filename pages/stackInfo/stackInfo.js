@@ -86,7 +86,6 @@ Page({
         resultArr: _this.data.resultArr.concat(data.data),
         page: _this.data.page + 1
       })
-      console.log(data.data)
     })
   }
 })
