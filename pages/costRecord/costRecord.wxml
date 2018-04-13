@@ -1,10 +1,10 @@
 <view class="costRecordContainer">
     <view style="text-align:center;margin:30rpx 0;font-size:.9em" wx:if="{{records.length == 0}}">暂无充值记录</view>
         <scroll-view wx:else scroll-y bindscrolltolower='getData' lower-threshold="200">
-  <view class="item">
+  <view class="item" wx:for-index="idx" wx:for="{{records}}">
       <view class="recordInfo">
-          <text class="recordTitle">订购：斗破苍穹</text>
-          <text class="recordContent">第70章：五帝破空</text>
+          <text class="recordTitle">订购：{{item.bookName}}</text>
+          <text class="recordContent">{{item.chapterName}}</text>
           <text class="recordTime">2017-06-19 | 15:00</text>
       </view>
 
