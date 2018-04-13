@@ -11,7 +11,7 @@
         <text class="item {{index == tagId ? 'themeFontColor' : ''}}" bindtap='selectItem' data-id="{{index}}" data-item="{{item}}" data-type="tag" wx:for="{{tagsArr}}">{{item}}</text>
       </view>
     </view>
-    <scroll-view scroll-y bindscrolltolower='getMoreData' lower-threshold="100" scroll-top="{{scrollTop}}">
+    <scroll-view scroll-y bindscrolltolower='getMoreData' lower-threshold="200" scroll-top="{{scrollTop}}">
       <navigator hover-class='none' url='/pages/bookInfo/bookInfo?id={{item.bookId}}' class="listItem" wx:for-index="idx" wx:for="{{resultArr}}">
           <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
             <view class="itemImage">
