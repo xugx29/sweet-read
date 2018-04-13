@@ -7,6 +7,7 @@ Page({
    */
   data: {
     page :0,
+    records : [],
     allowToRequest:true
   },
 
@@ -14,9 +15,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getData(true);
+  },
+  getData(isOnLoad){
+    var _this = this;
     var userId = wx.getStorageSync('userId');
-    utils.utilRequest('/mpApi/chargelog',{userId : userId,page : this.data.page},'GET',function(data){
-
+    if(!userId) return;
+    utils.utilRequest('/mpApi/chargelog', { userId: userId, page: this.data.page }, 'GET', function (data) {
+      _this.setData({
+        records: isOnLoad ? data.data : _this.data.records.contact(data.data)
+      })
     })
   },
 
