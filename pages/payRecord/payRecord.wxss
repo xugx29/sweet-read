@@ -1,3 +1,6 @@
+scroll-view{
+  height:100vh;
+}
 .payRecordContainer{
   padding:0 30rpx;
 }

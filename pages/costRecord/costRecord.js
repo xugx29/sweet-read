@@ -18,6 +18,7 @@ Page({
     this.getData(true);
   },
   getData(isOnLoad) {
+    console.log(this.data)
     if (!this.data.allowToRequest) return;
     var _this = this;
     var userId = wx.getStorageSync('userId');
@@ -28,7 +29,6 @@ Page({
         records: isOnLoad ? data.data : _this.data.records.contact(data.data)
       })
       if (data.data.length < 20) {
-        allowToRequest
         _this.setData({
           allowToRequest: false
         })

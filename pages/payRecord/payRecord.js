@@ -28,7 +28,6 @@ Page({
         records: isOnLoad ? data.data : _this.data.records.contact(data.data)
       })
       if(data.data.length < 20){
-        allowToRequest
         _this.setData({
           allowToRequest : false
         })
