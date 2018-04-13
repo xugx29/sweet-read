@@ -18,13 +18,21 @@ Page({
     this.getData(true);
   },
   getData(isOnLoad){
+    if (!this.data.allowToRequest) return;
     var _this = this;
     var userId = wx.getStorageSync('userId');
     if(!userId) return;
     utils.utilRequest('/mpApi/chargelog', { userId: userId, page: this.data.page }, 'GET', function (data) {
       _this.setData({
+        page : _this.data.page + 1,
         records: isOnLoad ? data.data : _this.data.records.contact(data.data)
       })
+      if(data.data.length < 20){
+        allowToRequest
+        _this.setData({
+          allowToRequest : false
+        })
+      }
     })
   },
 

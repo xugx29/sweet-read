@@ -1,6 +1,7 @@
 <view class="payRecordContainer">
-    <view wx:if="records.length == 0">暂无充值记录</view>
-    <view class="item" wx:else>
+    <view style="text-align:center;margin:30rpx 0;font-size:.9em" wx:if="{{records.length == 0}}">暂无充值记录</view>
+    <scroll-view wx:else scroll-y bindscrolltolower='getData' lower-threshold="200">
+      <view class="item">
         <view class="line1 line">
           <text class="desc">充值</text>
           <text class="amount themeFontColor">+20.00元</text>
@@ -10,4 +11,5 @@
           <text class="status themeFontColor">充值完成</text>
         </view>
     </view>
+    </scroll-view>
 </view>
