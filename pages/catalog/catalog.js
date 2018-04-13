@@ -7,7 +7,7 @@ Page({
   data: {
     asc : 1,
     bookId : 0,
-    page : 0, // 分页页码
+    page : 1, // 分页页码
     orderType: 0, // 0正序 1倒序
     catalogs : [
       '第一章：阿斯顿和勤务i多哈赛',
