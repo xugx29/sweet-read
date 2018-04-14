@@ -7,7 +7,7 @@ Page({
    */
   data: {
     userInfoByApi : {},
-    userInfo : wx.getStorageSync('userInfo')
+    userInfo : {}
   },
 
   /**
@@ -15,6 +15,9 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
+    this.setData({
+      userInfo: wx.getStorageSync('userInfo')
+    })
     var userId = wx.getStorageSync('userId');
     if(!userId){
       
