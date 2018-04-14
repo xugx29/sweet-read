@@ -5,6 +5,7 @@ Page({
     shelfData:[]
   },
   onLoad(){
+    var _this = this;
     var userId = wx.getStorageSync('userId');
     if(!userId) return;
     utils.utilRequest('/mpApi/shelf', {userId : userId}, 'get', function (res) {
