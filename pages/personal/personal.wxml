@@ -16,7 +16,7 @@
         </view>
       </view>
 
-    <navigator url="/pages/autoFocus/autoFocus">
+    <navigator hover-class='none' url="/pages/autoFocus/autoFocus">
       <view class="featureItem autoFocus">
         <view class="desc"><image mode='widthFix' class="icon dingyue" src="../images/dingyue.jpg"></image><text class="itemName">自动订阅</text></view>
 
@@ -26,7 +26,7 @@
       </view>
     </navigator>
 
-    <navigator url="/pages/payRecord/payRecord">
+    <navigator hover-class='none'  url="/pages/payRecord/payRecord">
       <view class="featureItem payRecord">
         <view class="desc"><image mode='widthFix' class="icon dingyue" src="../images/chongzhi.jpg"></image><text class="itemName">充值记录</text></view>
 
@@ -36,7 +36,7 @@
       </view>
    </navigator>
 
-      <navigator url="/pages/costRecord/costRecord">
+      <navigator  hover-class='none'  url="/pages/costRecord/costRecord">
         <view class="featureItem costRecord">
         <view class="desc"><image mode='widthFix' class="icon dingyue" src="../images/xiaofei.jpg"></image><text class="itemName">消费记录</text></view>
 

@@ -1,35 +1,16 @@
-var app = getApp()
+var app = getApp();
+const utils = require('../../utils/util.js');
 Page({
   data: {
-    shelfData:[
-      {
-        title: '倾世妖记',
-        author: '千流万溪',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      },
-      {
-        title: '倾世妖记',
-        author: '千流万溪',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      },
-      {
-        title: '倾世妖记',
-        author: '千流万溪',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      },
-      {
-        title: '倾世妖记',
-        author: '千流万溪',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      }
-    ]
+    shelfData:[]
+  },
+  onLoad(){
+    var userId = wx.getStorageSync('userId');
+    if(!userId) return;
+    utils.utilRequest('/mpApi/shelf', {userId : userId}, 'get', function (res) {
+      _this.setData({
+        payLevel: res.data
+      })
+    })
   }
 })

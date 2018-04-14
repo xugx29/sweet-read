@@ -24,7 +24,7 @@ Page({
     utils.utilRequest('/mpApi/chargelog', { userId: userId, page: this.data.page }, 'GET', function (data) {
       _this.setData({
         page : _this.data.page + 1,
-        records: isOnLoad ? data.data : _this.data.records.contact(data.data)
+        records: _this.data.records.concat(data.data)
       })
       if(data.data.length < 20){
         _this.setData({

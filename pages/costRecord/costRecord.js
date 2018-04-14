@@ -18,15 +18,15 @@ Page({
     this.getData(true);
   },
   getData(isOnLoad) {
-    console.log(this.data)
     if (!this.data.allowToRequest) return;
     var _this = this;
     var userId = wx.getStorageSync('userId');
     if (!userId) return;
     utils.utilRequest('/mpApi/readlog', { userId: userId, page: this.data.page }, 'GET', function (data) {
+      console.log(_this.data.records)
       _this.setData({
         page: _this.data.page + 1,
-        records: isOnLoad ? data.data : _this.data.records.contact(data.data)
+        records: _this.data.records.concat(data.data)
       })
       if (data.data.length < 20) {
         _this.setData({
