@@ -60,7 +60,19 @@ Page({
       showMore: !this.data.showMore
     })
   },
-
+  autoBuy(){
+    if(!this.data.bookId || !wx.getStorageSync('userId')){
+      return wx.showToast({
+        title: '自动订阅失败，请重试',
+        icon: 'none',
+        duration: 1500,
+        mask: true
+      })
+    }
+    utils.utilRequest('/mpApi/autobuy', { bookId: this.data.bookId, userId: wx.getStorageSync('userId'),type :1},'get',function(data){
+      console.log(data)
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

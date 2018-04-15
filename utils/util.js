@@ -60,6 +60,11 @@ const utilRequest = (url, params, method, callback, hideLoading) => {
       if (!hideLoading) {
         wx.hideLoading()
       }
+      wx.showToast({
+        title: '网络连接异常，请检查网络',
+        icon: 'none',
+        duration: 2000
+      })
       // if (!fail) {
       //   wx.showToast({
       //     title: '网络连接异常，请检查网络',

@@ -28,7 +28,7 @@
     <view class="buttonArea">
         <navigator class="toRead themeBgColor" hover-class='none' url="/pages/catalog/catalog?bookId={{bookId}}">开始阅读</navigator>
         <navigator class="toBookShelf dashedButton"  hover-class='none'>加入书架</navigator>
-        <navigator class="autoFocus dashedButton" hover-class='none'>自动订阅</navigator>
+        <navigator class="autoFocus dashedButton" bindtap='autoBuy' hover-class='none'>自动订阅</navigator>
     </view>
     <!-- 简介 -->
     <view class="descContainer">
