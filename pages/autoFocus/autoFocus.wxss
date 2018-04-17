@@ -21,6 +21,12 @@
   font-size:.85em;
   color:#666;
 }
+.title{
+  width:calc(100vw - 190rpx);
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
 .title,.desc{
   height:60rpx;
   line-height:60rpx;

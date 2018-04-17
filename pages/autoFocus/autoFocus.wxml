@@ -1,20 +1,12 @@
 <view class="autoFocusContainer">
-
-  <view class="item">
+<view style="text-align:center;margin:30rpx 0;font-size:.9em" wx:if="{{autoFocusList.length == 0}}">暂无订阅书籍</view>
+  <view class="item" wx:for-index="idx" wx:for="{{autoFocusList}}">
       <view class="info">
-        <text class="title">《死人经》</text>
-        <text class="desc">第一百章 终结</text>
+        <text class="title">{{item.bookName}}</text>
+        <!-- <text class="desc">{{item.lastChapterName}}</text> -->
       </view>
-      <image class="switch" wx:if="{{!statusArr[0]}}" data-index="0" data-status="0" bindtap='changeSwitch' mode="widthFix" src="../images/switchOff.jpg"></image>
-      <image class="switch" wx:else data-index="0" data-status="0" bindtap='changeSwitch' mode="widthFix" src="../images/switchOn.jpg"></image>
-  </view>
-
-  <view class="item">
-      <view class="info">
-        <text class="title">《死人经》</text>
-        <text class="desc">第一百章 终结</text>
-      </view>
-      <image class="switch" data-index="1" data-status="0" bindtap='changeSwitch' mode="widthFix" src="../images/switchOff.jpg"></image>
+      <!-- <image class="switch" wx:show="{{!item.status}}" data-id="{{item.bookId}}" data-status="1" bindtap='changeSwitch' mode="widthFix" src="../images/switchOff.jpg"></image> -->
+      <image class="switch" data-id="{{item.bookId}}" data-status="0" data-index="{{idx}}" bindtap='changeSwitch' mode="widthFix" src="../images/switchOn.jpg"></image>
   </view>
 
 </view>

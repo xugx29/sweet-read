@@ -31,7 +31,46 @@ Page({
       }
     })
   },
-
+  changeSwitch (event){
+    var _this = this;
+    var bookId = event.currentTarget.dataset.id;
+    var index = event.currentTarget.dataset.index
+      if (!bookId || !wx.getStorageSync('userId')) {
+        return wx.showToast({
+          title: '取消订阅失败，请重试',
+          icon: 'none',
+          duration: 1500,
+          mask: true
+        })
+      }
+      utils.utilRequest('/mpApi/autobuy', { bookId: bookId, userId: wx.getStorageSync('userId'), type: 0 }, 'get', function (data) {
+        if (data.resultCode == 0) {
+         wx.showToast({
+            title: '取消订阅成功',
+            icon: 'none',
+            duration: 1500,
+            mask: true
+          })
+          var newArr = [];
+         for (var i = 0; i < _this.data.autoFocusList.length;i++) {
+           if (_this.data.autoFocusList[i].bookId != bookId){
+             newArr.push(_this.data.autoFocusList[i])
+           }
+         }
+          _this.setData({
+            autoFocusList: newArr
+          })
+          return
+        }else{
+          return wx.showToast({
+            title: '取消订阅失败，请重试',
+            icon: 'none',
+            duration: 1500,
+            mask: true
+          })
+        }
+      })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

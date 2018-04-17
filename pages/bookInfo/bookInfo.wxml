@@ -27,8 +27,10 @@
     <!-- 三个按钮 -->
     <view class="buttonArea">
         <navigator class="toRead themeBgColor" hover-class='none' url="/pages/catalog/catalog?bookId={{bookId}}">开始阅读</navigator>
-        <view class="toBookShelf dashedButton" bindtap='add2Shelf' data-type="1">加入书架</view>
-        <view class="autoFocus dashedButton" bindtap='autoBuy'>自动订阅</view>
+        <view wx:if="{{bookInfo.isshelf == 0}}" class="toBookShelf dashedButton" bindtap='add2Shelf' data-type="1">加入书架</view>
+        <view wx:else class="toBookShelf dashedButton" bindtap='add2Shelf' data-type="0">已在书架</view>
+        <view wx:if="{{bookInfo.isautobuy == 0}}" class="autoFocus dashedButton" bindtap='autoBuy'>自动订阅</view>
+        <view wx:else class="autoFocus dashedButton">已订阅</view>
     </view>
     <!-- 简介 -->
     <view class="descContainer">
@@ -64,7 +66,7 @@
           <view class="picAndText">
               <view class="picAndTextItem"  wx:for-index="idx" wx:for="{{tuijian}}">
                   <view style="width:100%;"><image mode="widthFix" src="{{item.imgUrl}}"></image></view>
-                  <text>{{item.title}}</text>
+                  <text>{{item.bookName}}</text>
               </view> 
             </view>
         </view>

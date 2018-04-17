@@ -60,7 +60,8 @@ Page({
     })
   },
   add2Shelf(event){
-    var typeId = event.currentTarget.dataset.type;
+    var _this = this;
+    var typeId = parseInt(event.currentTarget.dataset.type);
     if (!this.data.bookId || !wx.getStorageSync('userId')) {
       return wx.showToast({
         title: '加入书架失败，请重试',
@@ -70,17 +71,26 @@ Page({
       })
     }
     utils.utilRequest('/mpApi/add2shelf', { bookId: this.data.bookId, userId: wx.getStorageSync('userId'), type: typeId }, 'get', function (data) {
+      var title = typeId == 0 ? '已从书架移除' : '已加入书架'
       if (data.resultCode == 0) {
-        return wx.showToast({
-          title: '自动订阅成功！',
+         wx.showToast({
+          title: title,
           icon: 'none',
           duration: 1500,
           mask: true
         })
+        var bookInfo = _this.data.bookInfo;
+        bookInfo.isshelf = typeId == 0 ? 0 : 1;
+        console.log(bookInfo)
+        _this.setData({
+          bookInfo: bookInfo
+        })
+        return
       }
     })
   },
   autoBuy(){
+    var _this = this;
     if(!this.data.bookId || !wx.getStorageSync('userId')){
       return wx.showToast({
         title: '自动订阅失败，请重试',
@@ -91,12 +101,18 @@ Page({
     }
     utils.utilRequest('/mpApi/autobuy', { bookId: this.data.bookId, userId: wx.getStorageSync('userId'),type :1},'get',function(data){
       if(data.resultCode == 0){
-        return wx.showToast({
+       wx.showToast({
           title: '自动订阅成功！',
           icon: 'none',
           duration: 1500,
           mask: true
         })
+       var bookInfo = _this.data.bookInfo;
+       bookInfo.isautobuy = 1;
+       _this.setData({
+         bookInfo: bookInfo
+       })
+       return 
       }
     })
   },
@@ -107,17 +123,29 @@ Page({
     this.setData({
       bookId: options.id
     })
+    var userId = wx.getStorageSync('userId');
+    var postData = {}
+    if(!userId){
+      postData = {
+        bookId: options.id
+      }
+    }else{
+      postData = {
+        bookId: options.id,
+        userId : userId
+      }
+    }
     var _this = this;
-    utils.utilRequest('/mpApi/bookinfo',{bookId : options.id},'get',function(data){
+    utils.utilRequest('/mpApi/bookinfo',postData,'get',function(data){
       _this.setData({
         bookInfo : data.data
       })
     })
       
     utils.utilRequest('/mpApi/recbooklist',{}, 'get', function (data) {
-      _this.setData({
-        tuijian: data.data
-      })
+      // _this.setData({
+      //   tuijian: data.data
+      // })
     })
   },
 
