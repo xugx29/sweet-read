@@ -371,5 +371,10 @@ Page({
     })
    
 
+  },
+  onLoad (){
+    utils.utilRequest('/mpApi/homepage', {}, 'get', function (result) {
+      console.log(result)
+    })
   }
 })

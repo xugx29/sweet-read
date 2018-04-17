@@ -1,18 +1,35 @@
 var app = getApp();
+const utils = require('../../utils/util.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    autoFocusList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var _this = this;
+    var userId = wx.getStorageSync('userId');
+    if(!userId){
+      return wx.showToast({
+        title: '获取订阅列表失败！',
+        icon: 'none',
+        duration: 1500,
+        mask: true
+      })
+    }
+    utils.utilRequest('/mpApi/autobuylist', { userId: userId }, 'get', function (data) {
+      if (data.resultCode == 0) {
+        _this.setData({
+          autoFocusList : data.data
+        })
+      }
+    })
   },
 
   /**

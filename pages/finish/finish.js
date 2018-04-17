@@ -1,4 +1,5 @@
 var app = getApp()
+const utils = require('../../utils/util.js');
 Page({
   data : {
     hotData : [
@@ -80,6 +81,16 @@ Page({
     var type = event.currentTarget.dataset.id;
     wx.redirectTo({
       url: '../finishSearch/finishSearch?type=' + type
+    })
+  },
+  onLoad (){
+    var _this = this;
+    utils.utilRequest('/mpApi/finishibook', {}, 'get', function (data) {
+      if (data.resultCode == 0) {
+        _this.setData({
+          hotData : data.data
+        })
+      }
     })
   }
 })

@@ -52,12 +52,32 @@ Page({
         bookType: '古代言情',
         imgUrl: '../images/img5.jpg'
       }
-    ],
-    descData: "<p>18岁那年，我被当作礼物送到他手里。</p><p>他宠我入骨，所有的姐妹们都羡慕我，可只有我自己心里清楚，我只是他初恋女孩的影子。</p><p>可就算影子，我也想成为最好的名字。</p>,<p>18岁那年，我被当作礼物送到他手里。</p><p>他宠我入骨，所有的姐妹们都羡慕我，可只有我自己心里清楚，我只是他初恋女孩的影子。</p><p>可就算影子，我也想成为最好的名字。</p>,<p>18岁那年，我被当作礼物送到他手里。</p><p>他宠我入骨，所有的姐妹们都羡慕我，可只有我自己心里清楚，我只是他初恋女孩的影子。</p><p>可就算影子，我也想成为最好的名字。</p>,<p>18岁那年，我被当作礼物送到他手里。</p><p>他宠我入骨，所有的姐妹们都羡慕我，可只有我自己心里清楚，我只是他初恋女孩的影子。</p><p>可就算影子，我也想成为最好的名字。</p>"
+    ]
   },
   toggleShowMore:function(){
     this.setData({
       showMore: !this.data.showMore
+    })
+  },
+  add2Shelf(event){
+    var typeId = event.currentTarget.dataset.type;
+    if (!this.data.bookId || !wx.getStorageSync('userId')) {
+      return wx.showToast({
+        title: '加入书架失败，请重试',
+        icon: 'none',
+        duration: 1500,
+        mask: true
+      })
+    }
+    utils.utilRequest('/mpApi/add2shelf', { bookId: this.data.bookId, userId: wx.getStorageSync('userId'), type: typeId }, 'get', function (data) {
+      if (data.resultCode == 0) {
+        return wx.showToast({
+          title: '自动订阅成功！',
+          icon: 'none',
+          duration: 1500,
+          mask: true
+        })
+      }
     })
   },
   autoBuy(){
@@ -70,7 +90,14 @@ Page({
       })
     }
     utils.utilRequest('/mpApi/autobuy', { bookId: this.data.bookId, userId: wx.getStorageSync('userId'),type :1},'get',function(data){
-      console.log(data)
+      if(data.resultCode == 0){
+        return wx.showToast({
+          title: '自动订阅成功！',
+          icon: 'none',
+          duration: 1500,
+          mask: true
+        })
+      }
     })
   },
   /**
@@ -84,6 +111,12 @@ Page({
     utils.utilRequest('/mpApi/bookinfo',{bookId : options.id},'get',function(data){
       _this.setData({
         bookInfo : data.data
+      })
+    })
+      
+    utils.utilRequest('/mpApi/recbooklist',{}, 'get', function (data) {
+      _this.setData({
+        tuijian: data.data
       })
     })
   },

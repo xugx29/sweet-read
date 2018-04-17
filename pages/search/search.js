@@ -1,4 +1,6 @@
 // pages/search/search.js
+const utils = require('../../utils/util.js');
+const app = getApp();
 Page({
 
   /**
@@ -8,6 +10,7 @@ Page({
     searchKeywords : '',
     inputFocus : false,
     getFocus : false,
+    page :1,
     searchResult: [  // 推荐列表
       {
         title: '倾世妖记',
@@ -72,7 +75,15 @@ Page({
    */
   onLoad: function (options) {
       var keywords = options.keywords;
-  
+      var _this = this;
+      utils.utilRequest('/mpApi/search', { keyword: keywords,page : this.data.page}, 'get', function (data) {
+        if (data.resultCode == 0) {
+          _this.setData({
+            searchResult: data.data,
+            page: _this.data.page + 1
+          })
+        }
+      })
       // 走请求获取搜索结果
   },
 
