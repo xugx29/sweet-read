@@ -106,6 +106,27 @@ Page({
     })
   },
   navigatorToBookInfo (event){
+
+    // var _this = this;
+    // var userId = wx.getStorageSync('userId');
+    // var bookId = event.currentTarget.dataset.id;
+    // var postData = {}
+    // if (!userId) {
+    //   postData = {
+    //     bookId: bookId
+    //   }
+    // } else {
+    //   postData = {
+    //     bookId: bookId,
+    //     userId: userId
+    //   }
+    // }
+    // utils.utilRequest('/mpApi/bookinfo', postData, 'get', function (data) {
+    //   _this.setData({
+    //     bookInfo: data.data
+    //   })
+    // })
+
     var bookId = event.currentTarget.dataset.id;
     console.log(bookId)
     wx.redirectTo({
