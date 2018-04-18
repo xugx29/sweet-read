@@ -64,8 +64,8 @@
 
         <view class="listContent">
           <view class="picAndText">
-              <view class="picAndTextItem"  wx:for-index="idx" wx:for="{{tuijian}}">
-                  <view style="width:100%;"><image mode="widthFix" src="{{item.imgUrl}}"></image></view>
+              <view class="picAndTextItem" bindtap='navigatorToBookInfo' data-id="{{item.bookId}}"  wx:for-index="idx" wx:for="{{tuijian}}">
+                  <view style="width:100%;"><image mode="widthFix" src="{{item.cover}}"></image></view>
                   <text>{{item.bookName}}</text>
               </view> 
             </view>

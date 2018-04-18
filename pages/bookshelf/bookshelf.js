@@ -10,7 +10,7 @@ Page({
     if(!userId) return;
     utils.utilRequest('/mpApi/shelf', {userId : userId}, 'get', function (res) {
       _this.setData({
-        payLevel: res.data
+        shelfData: res.data
       })
     })
   }

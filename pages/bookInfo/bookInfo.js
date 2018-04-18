@@ -9,50 +9,7 @@ Page({
     showMore : false,
     bookInfo : {},
     bookId : 0,
-    tuijian: [  // 推荐列表
-      {
-        title: '倾世妖记',
-        author: '千流万溪',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      },
-      {
-        title: '王爷好球：俏丫入我怀',
-        author: 'zixiyan',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      },
-      {
-        title: '妃长闹腾：狼君别来无恙',
-        author: '咱台明月',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      },
-      {
-        title: '十七人',
-        author: '夹不起丸子',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      },
-      {
-        title: '亮夫完成：顽固太子妃',
-        author: '下涩',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      },
-      {
-        title: '豪门闪婚：总裁老公，请客制',
-        author: '柳青也',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      }
-    ]
+    tuijian: []
   },
   toggleShowMore:function(){
     this.setData({
@@ -143,12 +100,18 @@ Page({
     })
       
     utils.utilRequest('/mpApi/recbooklist',{}, 'get', function (data) {
-      // _this.setData({
-      //   tuijian: data.data
-      // })
+      _this.setData({
+        tuijian: data.data
+      })
     })
   },
-
+  navigatorToBookInfo (event){
+    var bookId = event.currentTarget.dataset.id;
+    console.log(bookId)
+    wx.redirectTo({
+      url: '../bookInfo/bookInfo?id=' + bookId,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
