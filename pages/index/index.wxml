@@ -7,8 +7,8 @@
         autoplay="true" interval="3000" circular="true" duration="500">  
       <block wx:for="{{swiperImgUrls}}">  
         <swiper-item>  
-           <navigator style="width:100%;" class="navigatorContainer" hover-class="navigator-hover">  
-            <image src="{{item.url}}" class="slideImage" width="355" height="150"/>  
+           <navigator style="width:100%;" url="/pages/bookInfo/bookInfo?id={{item.bookId}}" hover-class='none' class="navigatorContainer" hover-class="navigator-hover">  
+            <image src="{{item.pic}}" class="slideImage" mode="widthFix"/>  
            </navigator>   
         </swiper-item>  
       </block>  
@@ -55,19 +55,19 @@
       </view>
       <view class="listContent">
         <view class="listItem"  wx:for-index="idx" wx:for="{{recommendArr}}">
-           <navigator hover-class='none' url="/pages/bookInfo/bookInfo" wx:if="{{idx == 0}}" style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
+           <navigator hover-class='none' url="/pages/bookInfo/bookInfo?id={{item.bookId}}" wx:if="{{idx == 0}}" style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
               <view class="itemImage">
-                  <image mode="widthFix" src="{{item.imgUrl}}"></image>
+                  <image mode="widthFix" src="{{item.cover}}"></image>
               </view>
               <view class="itemContent">
-                  <view class="articleTitle"><text class="titleContent">{{item.title}}</text> <text class="bookTypeTarget">{{item.bookType}}</text></view>
-                  <text class="articleAuthor">{{item.author}}</text>
-                  <text class="articleDesc">{{item.desc}}</text>
+                  <view class="articleTitle"><text class="titleContent">{{item.bookName}}</text> <text class="bookTypeTarget">{{item.cname}}</text></view>
+                  <text class="articleAuthor">{{item.authorName}}</text>
+                  <rich-text class="articleDesc" nodes="{{item.summary}}"></rich-text>
               </view>
            </navigator>
-           <view wx:else class="normalList border-bottom-1px-ccc">
-              <text class="bookTypeTarget">{{item.bookType}}</text><text class="normalListTitle">{{item.title}}</text><text class="normalListAuthor">{{item.author}}</text>
-           </view> 
+           <navigator  hover-class='none' url="/pages/bookInfo/bookInfo?id={{item.bookId}}" wx:else class="normalList border-bottom-1px-ccc">
+              <text class="bookTypeTarget">{{item.cname}}</text><text class="normalListTitle">{{item.bookName}}</text><text class="normalListAuthor">{{item.authorName}}</text>
+           </navigator> 
         </view>
       </view>
     </view>
@@ -79,19 +79,19 @@
       </view>
       <view class="listContent">
         <view class="listItem"  wx:for-index="idx" wx:for="{{guimiredu}}">
-           <view wx:if="{{idx < 3}}" style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
+           <navigator hover-class='none' url="/pages/bookInfo/bookInfo?id={{item.bookId}}" wx:if="{{idx < 3}}" style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
               <view class="itemImage">
-                  <image mode="widthFix" src="{{item.imgUrl}}"></image>
+                  <image mode="widthFix" src="{{item.cover}}"></image>
               </view>
               <view class="itemContent">
-                  <view class="articleTitle"><text class="titleContent">{{item.title}}</text> <text class="bookTypeTarget">{{item.bookType}}</text></view>
-                  <text class="articleAuthor">{{item.author}}</text>
-                  <text class="articleDesc">{{item.desc}}</text>
+                  <view class="articleTitle"><text class="titleContent">{{item.bookName}}</text> <text class="bookTypeTarget">{{item.cname}}</text></view>
+                  <text class="articleAuthor">{{item.authorName}}</text>
+                  <rich-text class="articleDesc" nodes="{{item.summary}}"></rich-text>
               </view>
-           </view>
-           <view wx:else class="normalList border-bottom-1px-ccc">
-              <text class="bookTypeTarget">{{item.bookType}}</text><text class="normalListTitle">{{item.title}}</text><text class="normalListAuthor">{{item.author}}</text>
-           </view> 
+           </navigator>
+           <navigator hover-class='none' url="/pages/bookInfo/bookInfo?id={{item.bookId}}" wx:else class="normalList border-bottom-1px-ccc">
+              <text class="bookTypeTarget">{{item.cname}}</text><text class="normalListTitle">{{item.bookName}}</text><text class="normalListAuthor">{{item.authorName}}</text>
+           </navigator> 
         </view>
       </view>
     </view>
@@ -103,10 +103,10 @@
       </view>
       <view class="listContent">
         <view class="picAndText">
-           <view class="picAndTextItem"  wx:for-index="idx" wx:for="{{duanyanqing}}">
-              <view style="width:100%;"><image mode="widthFix" src="{{item.imgUrl}}"></image></view>
-              <text>{{item.title}}</text>
-           </view> 
+           <navigator hover-class='none' url="/pages/bookInfo/bookInfo?id={{item.bookId}}" class="picAndTextItem"  wx:for-index="idx" wx:for="{{duanyanqing}}">
+              <view style="width:100%;"><image mode="widthFix" src="{{item.cover}}"></image></view>
+              <text>{{item.bookName}}</text>
+           </navigator> 
         </view>
       </view>
     </view>
@@ -118,26 +118,26 @@
       </view>
       <view class="listContent">
         <view class="listItem"  wx:for-index="idx" wx:for="{{guyanArr}}">
-           <view wx:if="{{idx == 0}}" style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
+           <navigator hover-class='none' url="/pages/bookInfo/bookInfo?id={{item.bookId}}" wx:if="{{idx == 0}}" style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
               <view class="itemImage">
-                  <image mode="widthFix" src="{{item.imgUrl}}"></image>
+                  <image mode="widthFix" src="{{item.cover}}"></image>
               </view>
               <view class="itemContent">
-                  <view class="articleTitle"><text class="titleContent">{{item.title}}</text> <text class="bookTypeTarget">{{item.bookType}}</text></view>
-                  <text class="articleAuthor">{{item.author}}</text>
-                  <text class="articleDesc">{{item.desc}}</text>
+                  <view class="articleTitle"><text class="titleContent">{{item.bookName}}</text> <text class="bookTypeTarget">{{item.cname}}</text></view>
+                  <text class="articleAuthor">{{item.authorName}}</text>
+                  <rich-text class="articleDesc" nodes="{{item.summary}}"></rich-text>
               </view>
-           </view>
-           <view wx:else class="normalList border-bottom-1px-ccc">
-              <text class="bookTypeTarget">{{item.bookType}}</text><text class="normalListTitle">{{item.title}}</text><text class="normalListAuthor">{{item.author}}</text>
-           </view> 
+           </navigator>
+           <navigator hover-class='none' url="/pages/bookInfo/bookInfo?id={{item.bookId}}" wx:else class="normalList border-bottom-1px-ccc">
+              <text class="bookTypeTarget">{{item.cname}}</text><text class="normalListTitle">{{item.bookName}}</text><text class="normalListAuthor">{{item.authorName}}</text>
+           </navigator> 
         </view>
       </view>
     </view>
     <!-- 广告图1 -->
-    <view class="ad">
-      <image mode="widthFix" src="{{adImgUrls[0].url}}"></image>
-    </view>
+    <navigator hover-class='none' url="/pages/bookInfo/bookInfo?id={{adImgUrls1[0].bookId}}" class="ad">
+      <image mode="widthFix" src="{{adImgUrls1[0].pic}}"></image>
+    </navigator>
      <!-- 热销现言 -->
      <view class="xianyanContainer">
       <view class="xianyanTitle titleContainer">
@@ -146,26 +146,26 @@
       </view>
       <view class="listContent">
         <view class="listItem"  wx:for-index="idx" wx:for="{{xianyanArr}}">
-           <view wx:if="{{idx == 0}}" style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
+           <navigator hover-class='none'  wx:if="{{idx == 0}}" url="/pages/bookInfo/bookInfo?id={{item.bookId}}"  style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
               <view class="itemImage">
-                  <image mode="widthFix" src="{{item.imgUrl}}"></image>
+                  <image mode="widthFix" src="{{item.cover}}"></image>
               </view>
               <view class="itemContent">
-                  <view class="articleTitle"><text class="titleContent">{{item.title}}</text> <text class="bookTypeTarget">{{item.bookType}}</text></view>
-                  <text class="articleAuthor">{{item.author}}</text>
-                  <text class="articleDesc">{{item.desc}}</text>
+                  <view class="articleTitle"><text class="titleContent">{{item.bookName}}</text> <text class="bookTypeTarget">{{item.cname}}</text></view>
+                  <text class="articleAuthor">{{item.authorName}}</text>
+                  <rich-text class="articleDesc" nodes="{{item.summary}}"></rich-text>
               </view>
-           </view>
-           <view wx:else class="normalList border-bottom-1px-ccc">
-              <text class="bookTypeTarget">{{item.bookType}}</text><text class="normalListTitle">{{item.title}}</text><text class="normalListAuthor">{{item.author}}</text>
-           </view> 
+           </navigator>
+           <navigator hover-class='none' url="/pages/bookInfo/bookInfo?id={{item.bookId}}" wx:else class="normalList border-bottom-1px-ccc">
+              <text class="bookTypeTarget">{{item.cname}}</text><text class="normalListTitle">{{item.bookName}}</text><text class="normalListAuthor">{{item.authorName}}</text>
+           </navigator> 
         </view>
       </view>
     </view>
      <!-- 广告图2 -->
-    <view class="ad">
-      <image mode="widthFix" src="{{adImgUrls[1].url}}"></image>
-    </view>
+    <navigator hover-class='none' url="/pages/bookInfo/bookInfo?id={{adImgUrls2[0].bookId}}" class="ad">
+      <image mode="widthFix" src="{{adImgUrls2[0].pic}}"></image>
+    </navigator>
 
  <!-- 剩余三个 -->
     <view class="otherContainer">
@@ -177,21 +177,17 @@
         <view class="listItem"  wx:for-index="idx" wx:for="{{otherArr}}">
            <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
               <view class="itemImage">
-                  <image mode="widthFix" src="{{item.imgUrl}}"></image>
+                  <image mode="widthFix" src="{{item.cover}}"></image>
               </view>
               <view class="itemContent">
-                  <view class="articleTitle"><text class="titleContent">{{item.title}}</text> <text class="bookTypeTarget">{{item.bookType}}</text></view>
-                  <text class="articleAuthor">{{item.author}}</text>
-                  <text class="articleDesc">{{item.desc}}</text>
+                  <view class="articleTitle"><text class="titleContent">{{item.bookName}}</text> <text class="bookTypeTarget">{{item.cname}}</text></view>
+                  <text class="articleAuthor">{{item.authorName}}</text>
+                  <rich-text class="articleDesc" nodes="{{item.summary}}"></rich-text>
               </view>
            </view>
         </view>
       </view>
     </view>
-
-
-
-
 
   </view>
 

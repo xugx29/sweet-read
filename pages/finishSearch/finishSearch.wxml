@@ -22,10 +22,6 @@
               <view><text class="itemDesc">资费</text></view>
               <text wx:for="{{costTypesArr}}" bindtap='changeSelect' data-type="cost" data-id="{{index}}" class="searchListItemType {{index == costButtonId ? 'choose' : ''}}">{{item}}</text>
           </view>
-          <view class="searchListItem">
-              <view><text class="itemDesc">进度</text></view>
-              <text wx:for="{{progressTypesArr}}" bindtap='changeSelect' data-type="progress" data-id="{{index}}" class="searchListItemType {{index == progressButtonId ? 'choose' : ''}}">{{item}}</text>
-          </view>
           <view class="confirmArea"> <button class="themeBgColor submit">确认</button></view>
       </view>
     </view>

@@ -79,6 +79,7 @@ Page({
       utils.utilRequest('/mpApi/search', { keyword: keywords,page : this.data.page}, 'get', function (data) {
         if (data.resultCode == 0) {
           _this.setData({
+            searchKeywords: keywords,
             searchResult: data.data,
             page: _this.data.page + 1
           })
@@ -86,7 +87,19 @@ Page({
       })
       // 走请求获取搜索结果
   },
-
+  toSearch(){
+    var _this = this;
+    var keywords = this.data.searchKeywords;
+    utils.utilRequest('/mpApi/search', { keyword: keywords, page: this.data.page }, 'get', function (data) {
+      if (data.resultCode == 0) {
+        _this.setData({
+          searchKeywords: keywords,
+          searchResult: data.data,
+          page: 1
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

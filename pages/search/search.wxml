@@ -6,29 +6,29 @@
           <input class="searchInput" focus='{{getFocus}}' value="{{searchKeywords}}" bindfocus="focusBlurMethod" bindblur="focusBlurMethod" type='text' style="{{inputFocus ? 'padding:0 70rpx 0 30rpx !important;' : ''}}"></input>
           <!-- <image wx:if="{{inputFocus}}" catchtap='clearKeywords' class="clearIcon" src="../images/clear.png"></image> -->
       </view>
-      <text class="searchButton">搜索</text>
+      <text class="searchButton" bindtap='toSearch'>搜索</text>
   
     </view>
-
+     <view style="text-align:center;margin:30rpx 0;font-size:.9em" wx:if="{{searchResult.length == 0}}">暂无搜索结果</view>
      <scroll-view class="listContainer" scroll-y>
-         <view class="listItem" wx:for-index="idx" wx:for="{{searchResult}}">
+         <navigator hover-class='none' url="/pages/bookInfo/bookInfo?id={{item.bookId}}" class="listItem" wx:for-index="idx" wx:for="{{searchResult}}">
            <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
               <view class="itemImage">
-                  <image mode="widthFix" src="{{item.imgUrl}}"></image>
+                  <image mode="widthFix" src="{{item.cover}}"></image>
               </view>
               <view class="itemContent">
-                  <view class="articleTitle"><text class="titleContent">{{item.title}}</text></view>
-                  <text class="articleDesc">{{item.desc}}</text>
+                  <view class="articleTitle"><text class="titleContent">{{item.bookName}}</text></view>
+                  <rich-text class="articleDesc" nodes="{{item.summary}}"></rich-text>
                   <view class="bookInfo"> 
-                    <text class="articleAuthor">{{item.author}}</text>
+                    <text class="articleAuthor">{{item.authorName}}</text>
                     <view class="count">
-                      <text class="type">古代言情</text>
-                      <text class="countNum">1.293万</text>
+                      <text class="type">{{item.cname}}</text>
+                      <text class="countNum">{{item.countTotal/10000}}万</text>
                     </view>
                   </view>
               </view>
            </view>
-        </view>
+        </navigator>
       </scroll-view> 
 
 </view>

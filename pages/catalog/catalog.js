@@ -27,6 +27,26 @@ Page({
     }
     this.getData(true);
   },
+  jump(event){
+    var isVip = event.currentTarget.dataset.vip;
+    var id = event.currentTarget.dataset.id;
+    var count = event.currentTarget.dataset.count
+    if (isVip == 0){
+      wx.navigateTo({
+        url: '../article/article?id=' + id,
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    }else{
+      wx.navigateTo({
+        url: '../preview/preview?cost=' + count + '&id=' + id,
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -34,6 +54,7 @@ Page({
     this.setData({
       bookId: options.bookId
     })
+    wx.setStorageSync('bookId', options.bookId)
     this.getData();
   },
   getData : function(concat){

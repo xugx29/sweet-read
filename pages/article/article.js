@@ -1,4 +1,6 @@
 // pages/article.js
+const utils = require('../../utils/util.js');
+const app = getApp();
 Page({
 
   /**
@@ -77,7 +79,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var id = options.id;
+    var userId = wx.getStorageSync('userId')
+    var bookId = wx.getStorageSync('bookId')
+    if (!id || !userId || !bookId){
+      wx.showToast({
+        title: '获取文章失败！',
+        icon: 'none',
+        duration: 1500,
+        mask: true,
+        success:function(){
+          setTimeout(function(){
+            wx.redirectTo({
+              url: '../catalog/catalog?bookId=' + bookId,
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+          },1500)
+        }
+      })
+    }else{
+      utils.utilRequest('/mpApi/chapter', { bookId: bookId, userId: userId, chapterId: id }, 'get', function (data) {
+
+      })
+    }
   },
 
   /**

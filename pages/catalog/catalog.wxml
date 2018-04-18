@@ -8,9 +8,13 @@
   </view>
 
   <scroll-view class="catalogsList" scroll-y bindscrolltolower='getData' lower-threshold="80" scroll-top="{{scrollTop}}">
-    <navigator url="/pages/preview/preview?chapterId={{item.chapterId}}&cost={{item.count}}" class="item" wx:for="{{catalogs}}">
+    <!-- <navigator url="/pages/preview/preview?chapterId={{item.chapterId}}&cost={{item.count}}" class="item" wx:for="{{catalogs}}">
       <text class="itemTitle" data-id="{{item.order}}">{{item.chapterName}}</text>
       <image wx:if="{{item.isVip == 1}}" class="lockIcon" mode='widthFix' src="../images/lock.png"></image>
-    </navigator>
+    </navigator> -->
+    <view bindtap='jump' data-vip="{{item.isVip}}" data-id="{{item.chapterId}}" data-count="{{item.count}}" class="item" wx:for="{{catalogs}}">
+      <text class="itemTitle" data-id="{{item.order}}">{{item.chapterName}}</text>
+      <image wx:if="{{item.isVip == 1}}" class="lockIcon" mode='widthFix' src="../images/lock.png"></image>
+    </view>
   </scroll-view>
 </view>

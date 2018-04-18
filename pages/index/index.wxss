@@ -36,7 +36,7 @@
   height:100%;
 }
 swiper{
-  height:270rpx;
+  height:200rpx;
 }
 .menuContainer{
   display: flex;
@@ -190,10 +190,10 @@ navigator.menuItemContainer{
   overflow: hidden;
   line-height: 1.5;
 }
-view.ad{
+navigator.ad{
   margin:20rpx 0;
 }
-view.ad image{
+navigator.ad image{
   width:100%;
 }
 .titleContainer text{
