@@ -1,6 +1,6 @@
 <view class="shelfContainer">
   <view  style="text-align:center;margin:30rpx 0;font-size:.9em"  wx:if="{{shelfData.length == 0}}">暂无书籍</view>
-  <navigator url="/pages/bookInfo/bookInfo?id={{item.bookId}}" wx:for="{{shelfData}}"  wx:key="*this" class="shelfItem">
+  <navigator hover-class='none' url="/pages/bookInfo/bookInfo?id={{item.bookId}}" wx:for="{{shelfData}}"  wx:key="*this" class="shelfItem">
     <image mode="widthFix" src="{{item.cover}}"></image>
     <view class="shelfInfo">
         <text class="title">{{item.bookName}}</text>
