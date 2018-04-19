@@ -16,6 +16,9 @@ rich-text{
   padding-bottom:30rpx;
   text-align: justify;
 }
+.duanluo{
+  text-indent: 70rpx;
+}
 .operationArea{
   margin-bottom:20rpx;
   display:flex;

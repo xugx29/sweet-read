@@ -1,26 +1,24 @@
 <!--pages/article.wxml-->
 <view class="articleContainer {{backgroundClass}}" bindtap='contentClick'>
   <scroll-view scroll-y style="height:100vh;padding:10rpx 20rpx 20rpx;box-sizing:border-box;">
-    <text class="articleTitle">第40章 不做安家儿女不做安家儿女不做安家儿女</text>
+    <text class="articleTitle">{{name}}</text>
     <view style="margin-bottom:30rpx;">
-      <rich-text  type="text" style="font-size:{{fontSize}}em">
-        不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女
-      </rich-text>
+      <rich-text nodes="{{article}}" style="font-size:{{fontSize}}em"></rich-text>
     </view>
     <view class="operationArea" catchtap='operationClick'>
-        <view class="prev">上一章</view>
-        <view class="catalog">目录</view>
-        <view class="next">下一章</view>
+        <view class="prev"  bindtap='prev' data-id="{{prevId}}">上一章</view>
+        <view class="catalog" bindtap='gotoCatelog'>目录</view>
+        <view class="next"  bindtap='next'  data-id="{{nextId}}">下一章</view>
     </view>
   </scroll-view>
 
   <view wx:if="{{showBottomMenu}}" catchtap='operationClick' class="bottomMenu">
-      <view class="prevParagraph item">
+      <view class="prevParagraph item" bindtap='prev' data-id="{{prevId}}">
         <image class="menuIcon" src='../images/prevParagraph.png'></image>
         <text>上一章</text>
       </view>
 
-      <view class="catalogMenu item">
+      <view class="catalogMenu item" bindtap='gotoCatelog'>
         <image class="menuIcon" src='../images/catalogIcon.png'></image>
         <text>目录</text>
       </view>
@@ -40,7 +38,7 @@
         <text>设置</text>
       </view>
 
-      <view class="nextParagraph item">
+      <view class="nextParagraph item" bindtap='next'  data-id="{{nextId}}">
         <image class="menuIcon" src='../images/nextParagraph.png'></image>
         <text>下一章</text>
       </view>

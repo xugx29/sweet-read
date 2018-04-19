@@ -1,5 +1,5 @@
 <view class="previewContainer">
-  <text class="articleTitle">第40章 不做安家儿女不做安家儿女不做安家儿女</text>
+  <text class="articleTitle">{{name}}</text>
   <view class="noticeContent">
       <view class="cost item">应付总额：<text class="number themeFontColor">{{cost}}</text> 阅豆</view>
       <view class="balance item">当前余额：<text class="number themeFontColor">{{balanceCount}}</text> 阅豆</view>

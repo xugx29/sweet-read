@@ -13,7 +13,10 @@ Page({
     showBottomMenu : false,
     showSetting :false,
     light: !true,
-    article: '不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女不做安家儿女'
+    article: '',
+    prevId:'',
+    nextId : '',
+    name: ''
   },
   operationClick:function(){
     return;
@@ -22,6 +25,36 @@ Page({
     this.setData({
       showBottomMenu: !this.data.showBottomMenu
     })
+  },
+  prev (event){
+    var id = event.currentTarget.dataset.id;
+    if(id == 0){
+      return wx.showToast({
+        title: '这是第一章！',
+        icon: 'none',
+        duration: 1500,
+        mask: true
+      })
+    }else{
+      wx.redirectTo({
+        url: '../article/article?id=' + id,
+      })
+    }
+  },
+  next(event) {
+    var id = event.currentTarget.dataset.id;
+    if (id == 0) {
+      return wx.showToast({
+        title: '这是最后一章！',
+        icon: 'none',
+        duration: 1500,
+        mask: true
+      })
+    } else {
+      wx.redirectTo({
+        url: '../article/article?id=' + id,
+      })
+    }
   },
   changeLight:function(){
     if(!this.data.light){
@@ -79,6 +112,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var _this = this;
     var id = options.id;
     var userId = wx.getStorageSync('userId')
     var bookId = wx.getStorageSync('bookId')
@@ -101,7 +135,12 @@ Page({
       })
     }else{
       utils.utilRequest('/mpApi/chapter', { bookId: bookId, userId: userId, chapterId: id }, 'get', function (data) {
-
+        _this.setData({
+          article: data.data.content.replace(/<p>/g, '<p class="duanluo">').replace(/<br\/>/g, '<br/>　　'),
+          name: data.data.name,
+          prevId: data.data.previousId,
+          nextId: data.data.nextId,
+        })
       })
     }
   },
@@ -112,7 +151,17 @@ Page({
   onReady: function () {
   
   },
-
+  gotoCatelog (){
+    // return console.log(getCurrentPages())
+    var bookId = wx.getStorageSync('bookId')
+    wx.navigateBack(1)
+    // wx.redirectTo({
+      // url: '../catalog/catalog?bookId=' + bookId,
+      // success: function(res) {},
+      // fail: function(res) {},
+      // complete: function(res) {},
+    // })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

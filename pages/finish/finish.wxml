@@ -6,24 +6,24 @@
       </view>
 
        <view>
-          <view class="listItem" wx:for-index="idx" wx:for="{{hotData}}">
+          <navigator url="/pages/bookInfo/bookInfo?id={{item.bookId}}" hover-class='none' class="listItem" wx:for-index="idx" wx:for="{{hotData}}">
           <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
             <view class="itemImage">
                 <image mode="widthFix" src="{{item.cover}}"></image>
             </view>
             <view class="itemContent">
                 <view class="articleTitle"><text class="titleContent">{{item.bookName}}</text></view>
-                <text class="articleDesc">{{item.desc}}</text>
+                <rich-text class="articleDesc" nodes="{{item.summary}}"></rich-text>
                 <view class="bookInfo"> 
                   <text class="articleAuthor">{{item.authorName}}</text>
                   <view class="count">
-                    <text class="type">{{item.bookType}}</text>
+                    <text class="type">{{item.cname}}</text>
                     <text class="countNum">1.293万</text>
                   </view>
                 </view>
             </view>
           </view>
-          </view>
+          </navigator>
 
        </view>  
   </view>
@@ -35,24 +35,24 @@
           <text class="more" bindtap='navigateToSearchFinish' data-id='最新完本'>更多></text>
       </view>
        <view>
-          <view class="listItem" wx:for-index="idx" wx:for="{{newData}}">
+          <navigator url="/pages/bookInfo/bookInfo?id={{item.bookId}}" hover-class='none' class="listItem" wx:for-index="idx" wx:for="{{newData}}">
           <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
             <view class="itemImage">
-                <image mode="widthFix" src="{{item.imgUrl}}"></image>
+                <image mode="widthFix" src="{{item.cover}}"></image>
             </view>
             <view class="itemContent">
-                <view class="articleTitle"><text class="titleContent">{{item.title}}</text></view>
-                <text class="articleDesc">{{item.desc}}</text>
+                <view class="articleTitle"><text class="titleContent">{{item.bookName}}</text></view>
+                <rich-text class="articleDesc" nodes="{{item.summary}}"></rich-text>
                 <view class="bookInfo"> 
-                  <text class="articleAuthor">{{item.author}}</text>
+                  <text class="articleAuthor">{{item.authorName}}</text>
                   <view class="count">
-                    <text class="type">{{item.bookType}}</text>
+                    <text class="type">{{item.cname}}</text>
                     <text class="countNum">1.293万</text>
                   </view>
                 </view>
             </view>
           </view>
-        </view>
+        </navigator>
        </view>  
   </view>
 </view>

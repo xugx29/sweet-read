@@ -30,6 +30,7 @@ Page({
   jump(event){
     var isVip = event.currentTarget.dataset.vip;
     var id = event.currentTarget.dataset.id;
+    var name = event.currentTarget.dataset.name;
     var count = event.currentTarget.dataset.count
     if (isVip == 0){
       wx.navigateTo({
@@ -40,7 +41,7 @@ Page({
       })
     }else{
       wx.navigateTo({
-        url: '../preview/preview?cost=' + count + '&id=' + id,
+        url: '../preview/preview?cost=' + count + '&id=' + id + '&name=' + name,
         success: function (res) { },
         fail: function (res) { },
         complete: function (res) { },
@@ -55,6 +56,8 @@ Page({
       bookId: options.bookId
     })
     wx.setStorageSync('bookId', options.bookId)
+  },
+  onShow:function(){
     this.getData();
   },
   getData : function(concat){
@@ -73,12 +76,6 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
 
   /**
    * 生命周期函数--监听页面隐藏

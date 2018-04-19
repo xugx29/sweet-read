@@ -11,50 +11,9 @@ Page({
     inputFocus : false,
     getFocus : false,
     page :1,
-    searchResult: [  // 推荐列表
-      {
-        title: '倾世妖记',
-        author: '千流万溪',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      },
-      {
-        title: '王爷好球：俏丫入我怀',
-        author: 'zixiyan',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      },
-      {
-        title: '妃长闹腾：狼君别来无恙',
-        author: '咱台明月',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      },
-      {
-        title: '十七人',
-        author: '夹不起丸子',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      },
-      {
-        title: '亮夫完成：顽固太子妃',
-        author: '下涩',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      },
-      {
-        title: '豪门闪婚：总裁老公，请客制',
-        author: '柳青也',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      }
-    ]
+    finish:false,
+    scrollTop:0,
+    searchResult: []
   },
   focusBlurMethod :function(event){
     this.setData({
@@ -89,13 +48,32 @@ Page({
   },
   toSearch(){
     var _this = this;
+    _this.setData({
+      page: 1,
+      finish: false,
+      scrollTop:0
+    })
     var keywords = this.data.searchKeywords;
     utils.utilRequest('/mpApi/search', { keyword: keywords, page: this.data.page }, 'get', function (data) {
       if (data.resultCode == 0) {
         _this.setData({
           searchKeywords: keywords,
           searchResult: data.data,
-          page: 1
+          page: _this.data.page + 1,
+          finish: data.data.length < 20 ? true : false
+        })
+      }
+    })
+  },
+  load(){
+    if(this.data.finish) return false;
+    var _this = this;
+    utils.utilRequest('/mpApi/search', { keyword: this.data.searchKeywords, page: this.data.page }, 'get', function (data) {
+      if (data.resultCode == 0) {
+        _this.setData({
+          searchResult: _this.data.searchResult.concat(data.data),
+          page: _this.data.page + 1,
+          finish: data.data.length < 20 ? true : false
         })
       }
     })

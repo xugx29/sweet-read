@@ -8,7 +8,8 @@ Page({
   data: {
     balance: -1, // 1 余额够，0 余额不够
     balanceCount : 0,
-    cost:0
+    cost:0,
+    name: ''
   },
   toRead : function(){
     wx.redirectTo({
@@ -56,7 +57,8 @@ Page({
    */
   onLoad: function (options) {
       this.setData({
-        chapterId: options.id
+        chapterId: options.id,
+        name : options.name
       })
       var userId = wx.getStorageSync('userId')
       var _this = this;

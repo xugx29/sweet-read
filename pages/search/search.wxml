@@ -10,7 +10,7 @@
   
     </view>
      <view style="text-align:center;margin:30rpx 0;font-size:.9em" wx:if="{{searchResult.length == 0}}">暂无搜索结果</view>
-     <scroll-view class="listContainer" scroll-y>
+     <scroll-view bindscrolltolower="load" class="listContainer" scroll-y scroll-top="{{scrollTop}}">
          <navigator hover-class='none' url="/pages/bookInfo/bookInfo?id={{item.bookId}}" class="listItem" wx:for-index="idx" wx:for="{{searchResult}}">
            <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
               <view class="itemImage">
@@ -23,7 +23,7 @@
                     <text class="articleAuthor">{{item.authorName}}</text>
                     <view class="count">
                       <text class="type">{{item.cname}}</text>
-                      <text class="countNum">{{item.countTotal/10000}}万</text>
+                      <text class="countNum">{{item.clickCount/10000}}万</text>
                     </view>
                   </view>
               </view>
