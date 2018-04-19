@@ -175,7 +175,7 @@
       </view>
       <view class="listContent">
         <view class="listItem"  wx:for-index="idx" wx:for="{{otherArr}}">
-           <view style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
+           <navigator hover-class='none' url="/pages/bookInfo/bookInfo?id={{item.bookId}}" style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">
               <view class="itemImage">
                   <image mode="widthFix" src="{{item.cover}}"></image>
               </view>
@@ -184,7 +184,7 @@
                   <text class="articleAuthor">{{item.authorName}}</text>
                   <rich-text class="articleDesc" nodes="{{item.summary}}"></rich-text>
               </view>
-           </view>
+           </navigator>
         </view>
       </view>
     </view>
