@@ -1,7 +1,7 @@
 <view class="personContainer">
   <view class="personalInfo">
       <view class="profilePicture"><image src="{{userInfo.avatarUrl}}" mode='widthFix'></image></view>
-      <view class="nickname">{{userInfoByApi.name}}</view>
+      <view class="nickname">{{userInfo.nickName}}</view>
   </view>
 
   <view class="featureList">

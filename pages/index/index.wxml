@@ -169,10 +169,6 @@
 
  <!-- 剩余三个 -->
     <view class="otherContainer">
-      <view class="otherTitle titleContainer">
-        <view class="TitleColorIcon"></view>
-        <text>本期推荐</text>
-      </view>
       <view class="listContent">
         <view class="listItem"  wx:for-index="idx" wx:for="{{otherArr}}">
            <navigator hover-class='none' url="/pages/bookInfo/bookInfo?id={{item.bookId}}" style="display:flex;padding-bottom:30rpx;" class="border-bottom-1px-ccc">

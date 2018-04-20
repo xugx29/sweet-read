@@ -9,7 +9,7 @@ Page({
   data: {
     backgroundClass : '',
     showFontSize:20,
-    fontSize:0.94,
+    fontSize:1,
     showBottomMenu : false,
     showSetting :false,
     light: !true,

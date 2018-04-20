@@ -12,7 +12,7 @@
   margin:25rpx 0;
 }
 rich-text{
-  font-size:.94em;
+  font-size:2em;
   padding-bottom:30rpx;
   text-align: justify;
 }
