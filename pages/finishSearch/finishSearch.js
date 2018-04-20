@@ -1,10 +1,6 @@
-var app = getApp()
+var app = getApp();
+const utils = require('../../utils/util.js');
 Page({
-  onLoad: function (options){
-    wx.setNavigationBarTitle({
-      title: options.type + '- 甜悦读'
-    })
-  },
   data : {
     showTypeContent:false,
     showSearchContent:false,
@@ -13,53 +9,50 @@ Page({
     costButtonId : 0,
     progressButtonId : 0,
     isScroll: true,
-    bookTypes: ['全部分类', '古代言情', '纪实生活', '青春校园', '女生灵异', '都市暧昧', '玄幻奇幻', '仙侠修真','悬疑灵异'],
-    costTypesArr : ['不限','免费','VIP'],
-    progressTypesArr: ['不限', '连载', '完结'],
-    finishArr: [  // 推荐列表
-      {
-        title: '倾世妖记',
-        author: '千流万溪',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
+    bookTypes: [{
+      name : '全部分类',
+      id:0
+    }, {
+      name: '古代言情',
+      id: 11
+      }, {
+        name: '现代言情',
+        id: 12
       },
       {
-        title: '王爷好球：俏丫入我怀',
-        author: 'zixiyan',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      },
-      {
-        title: '妃长闹腾：狼君别来无恙',
-        author: '咱台明月',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      },
-      {
-        title: '十七人',
-        author: '夹不起丸子',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      },
-      {
-        title: '亮夫完成：顽固太子妃',
-        author: '下涩',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      },
-      {
-        title: '豪门闪婚：总裁老公，请客制',
-        author: '柳青也',
-        desc: '我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓，我姬安白，此生不信山盟海誓',
-        bookType: '古代言情',
-        imgUrl: '../images/img5.jpg'
-      }
-    ]
+        name: '穿越幻想',
+        id: 13
+      }, {
+        name: '浪漫青春',
+        id: 14
+      }, {
+        name: '灵异悬疑',
+        id: 37
+      }, {
+        name: '悬疑探险',
+        id: 40
+      }, {
+        name: '玄幻奇幻',
+        id: 5
+      }, {
+        name: '悬疑探险',
+        id: 6
+      }, {
+        name: '游戏竞技',
+        id: 7
+      }, {
+        name: '历史军事',
+        id: 8
+      }, {
+        name: '现代都市',
+        id: 9
+      }, {
+        name: '武侠仙侠',
+        id: 10
+      }],
+    costTypesArr: [{ name: '不限', id: -1 }, { name: 'VIP', id: 0 }, { name: '免费', id: 1}],
+    // '不限','免费','VIP'
+    finishArr: []
   },
   showSeacrchContent : function(event){
     var id = event.currentTarget.dataset.id;
@@ -111,6 +104,20 @@ Page({
           //动态根据手机分辨率来计算内容的高度（屏幕总高度-顶部筛选栏的高度）
           contentHeight: (res.windowHeight - 90 * res.screenWidth / 750)
         });
+      }
+    })
+  },
+  onLoad: function (options){
+    var title = options.type == 0 ? '最新完本' : '热门完本'
+    wx.setNavigationBarTitle({
+      title: title + '- 甜悦读'
+    })
+    var _this = this;
+    utils.utilRequest('/mpApi/finishibook', { type: options.type, cid: 0, isfree: -1 }, 'get', function (data) {
+      if (data.resultCode == 0) {
+        _this.setData({
+          finishArr: data.data
+        })
       }
     })
   }

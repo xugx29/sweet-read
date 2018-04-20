@@ -2,7 +2,7 @@
   <view class="hot-finish">
       <view class="typeTitle">
           <view class="title"><text class="icon"></text><text>热门完本</text></view>
-          <text class="more" bindtap='navigateToSearchFinish' data-id="热门完本">更多></text>
+          <text class="more" bindtap='navigateToSearchFinish' data-id="1">更多></text>
       </view>
 
        <view>
@@ -32,7 +32,7 @@
 <view class="new-finish">
       <view class="typeTitle">
           <view class="title"><text class="icon"></text><text>最新完本</text></view>
-          <text class="more" bindtap='navigateToSearchFinish' data-id='最新完本'>更多></text>
+          <text class="more" bindtap='navigateToSearchFinish' data-id='0'>更多></text>
       </view>
        <view>
           <navigator url="/pages/bookInfo/bookInfo?id={{item.bookId}}" hover-class='none' class="listItem" wx:for-index="idx" wx:for="{{newData}}">

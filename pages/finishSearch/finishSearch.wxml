@@ -15,36 +15,36 @@
     </view>
    <view class="searchContent">
       <view class="searchItem typeContent" hidden='{{!showTypeContent}}'>
-          <view wx:for="{{bookTypes}}" data-id="{{index}}" bindtap='changeChoose' class="item {{index == chooseTypeId ? 'choose' : ''}}">{{item}}</view>
+          <view wx:for="{{bookTypes}}" data-id="{{item.id}}" bindtap='changeChoose' class="item {{index == chooseTypeId ? 'choose' : ''}}">{{item.name}}</view>
       </view>
       <view class="searchItem searchMain" hidden='{{!showSearchContent}}'>
           <view class="searchListItem">
               <view><text class="itemDesc">资费</text></view>
-              <text wx:for="{{costTypesArr}}" bindtap='changeSelect' data-type="cost" data-id="{{index}}" class="searchListItemType {{index == costButtonId ? 'choose' : ''}}">{{item}}</text>
+              <text wx:for="{{costTypesArr}}" data-id="{{item.id}}" bindtap='changeSelect' data-type="cost" class="searchListItemType {{index == costButtonId ? 'choose' : ''}}">{{item.name}}</text>
           </view>
           <view class="confirmArea"> <button class="themeBgColor submit">确认</button></view>
       </view>
     </view>
 
     <scroll-view scroll-y="{{isScroll}}" class="itemContainer">
-      <view class="listItem" wx:for-index="idx" wx:for="{{finishArr}}">
+      <navigator url="/pages/bookInfo/bookInfo?id={{item.bookId}}" hover-class='none' class="listItem" wx:for-index="idx" wx:for="{{finishArr}}">
            <view style="display:flex;padding-bottom:30rpx;">
               <view class="itemImage">
-                  <image mode="widthFix" src="{{item.imgUrl}}"></image>
+                  <image mode="widthFix" src="{{item.cover}}"></image>
               </view>
               <view class="itemContent">
-                  <view class="articleTitle"><text class="titleContent">{{item.title}}</text></view>
-                  <text class="articleDesc">{{item.desc}}</text>
+                  <view class="articleTitle"><text class="titleContent">{{item.bookName}}</text></view>
+                  <rich-text class="articleDesc" nodes="{{item.summary}}"></rich-text>
                   <view class="bookInfo"> 
-                    <text class="articleAuthor">{{item.author}}</text>
+                    <text class="articleAuthor">{{item.authorName}}</text>
                     <view class="count">
-                      <text class="type">古代言情</text>
-                      <text class="countNum">1.293万</text>
+                      <text class="type">{{item.cname}}</text>
+                      <text class="countNum">{{item.clickCount/10000}}万</text>
                     </view>
                   </view>
               </view>
            </view>
-        </view>
+        </navigator>
     </scroll-view>
 
      <view class="mask" bindtap='hideMask' hidden='{{!showSearchContent && !showTypeContent}}' style="height:{{contentHeight}}px;line-height:{{contentHeight}}px"></view> 
