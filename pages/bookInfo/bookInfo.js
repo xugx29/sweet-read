@@ -80,6 +80,7 @@ Page({
     this.setData({
       bookId: options.id
     })
+    wx.setStorageSync('bookId', options.id)
     var userId = wx.getStorageSync('userId');
     var postData = {}
     if(!userId){
