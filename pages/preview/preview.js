@@ -32,7 +32,7 @@ Page({
       utils.utilRequest('/mpApi/buy', { userId: userId, bookId: bookId, chapterId: chapterId }, 'get', function (data) {
         console.log(data)
         if (data.resultCode == 0){
-          wx.navigateTo({
+          wx.redirectTo({
             url: '../article/article?id=' + chapterId,
             success: function (res) { },
             fail: function (res) { },

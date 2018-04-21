@@ -26,7 +26,8 @@
     </view>
     <!-- 三个按钮 -->
     <view class="buttonArea">
-        <navigator class="toRead themeBgColor" hover-class='none' url="/pages/catalog/catalog?bookId={{bookId}}">开始阅读</navigator>
+        <!-- <navigator class="toRead themeBgColor" hover-class='none' url="/pages/catalog/catalog?bookId={{bookId}}">开始阅读</navigator> -->
+        <view bindtap="readFirst" class="toRead themeBgColor">开始阅读</view>
         <view wx:if="{{bookInfo.isshelf == 0}}" class="toBookShelf dashedButton" bindtap='add2Shelf' data-type="1">加入书架</view>
         <view wx:else class="toBookShelf dashedButton" bindtap='add2Shelf' data-type="0">已在书架</view>
         <view wx:if="{{bookInfo.isautobuy == 0}}" class="autoFocus dashedButton" bindtap='autoBuy'>自动订阅</view>
@@ -52,9 +53,9 @@
 
     </view>
     <!-- 最新 -->
-    <view class="lastNew">
-      <text>最新：</text><text>再免费推荐一本好看的书</text>
-    </view>
+    <navigator hover-class='none' class="lastNew" url="/pages/catalog/catalog?bookId={{bookId}}">
+      <text>最新：</text><text>{{bookInfo.lastChapterName}}</text>
+    </navigator>
 
     <!-- 精彩推荐 -->
     <view class="tuijianContainer">

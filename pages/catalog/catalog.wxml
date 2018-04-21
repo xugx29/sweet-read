@@ -2,8 +2,8 @@
   <view class="desc">
       <text class="title">全部章节</text>
       <view class="sort">
-          <text bindtap='changeSort' data-type="asc" class="asc {{orderType == 0 ? 'choose' : ''}}">正序</text>
-          <text bindtap='changeSort' data-type="desc" class="desc {{orderType != 0 ? 'choose' : ''}}">倒序</text>
+          <!-- <text bindtap='changeSort' data-type="asc" class="asc {{orderType == 0 ? 'choose' : ''}}">正序</text> -->
+          <!-- <text bindtap='changeSort' data-type="desc" class="desc {{orderType != 0 ? 'choose' : ''}}">倒序</text> -->
       </view>
   </view>
 

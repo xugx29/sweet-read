@@ -5,11 +5,14 @@ Page({
     showTypeContent:false,
     showSearchContent:false,
     contentHeight: 0,
-    chooseTypeId : 0,
-    costButtonId : 0,
     progressButtonId : 0,
     page : 1,
     isScroll: true,
+    finish:false,
+    cid: 0,
+    type:0,
+    scrollTop:0,
+    isfree : -1,
     bookTypes: [{
       name : '全部分类',
       id:0
@@ -81,20 +84,23 @@ Page({
   changeChoose : function(event){
     // 切换分类
     this.setData({
-      chooseTypeId: event.currentTarget.dataset.id
+      cid: event.currentTarget.dataset.id
     })
+    this.search();
   },
   changeSelect:function(event){
     var selectType = event.currentTarget.dataset.type;
     var id = event.currentTarget.dataset.id;
-    if(selectType == 'cost') {
-      this.setData({
-        costButtonId : id
-      })
-      return;
-    }
     this.setData({
-      progressButtonId: id
+      isfree : id
+    })
+  },
+  confirmSearch(){
+    this.search();
+    this.setData({
+      showTypeContent: false,
+      showSearchContent: false,
+      isScroll: true
     })
   },
   onReady: function () {
@@ -113,12 +119,43 @@ Page({
     wx.setNavigationBarTitle({
       title: title + '- 甜悦读'
     })
+    this.setData({
+      type: options.type
+    })
     var _this = this;
-    utils.utilRequest('/mpApi/finishibook', { type: options.type, page: _this.data.page, cid: 0, isfree: -1 }, 'get', function (data) {
+    utils.utilRequest('/mpApi/finishibook', { type: parseInt(this.data.type), page: _this.data.page, cid: 0, isfree: -1 }, 'get', function (data) {
       if (data.resultCode == 0) {
         _this.setData({
           finishArr: data.data,
           page : _this.data.page+1
+        })
+      }
+    })
+  },
+  loadMore(){
+    if(this.data.finish) return false;
+    var _this = this;
+    utils.utilRequest('/mpApi/finishibook', { type: parseInt(this.data.type), page: _this.data.page, cid: parseInt(this.data.cid), isfree: parseInt(this.data.isfree) }, 'get', function (data) {
+      if (data.resultCode == 0) {
+        _this.setData({
+          finishArr: _this.data.finishArr.concat(data.data),
+          page: _this.data.page + 1,
+          finish : data.data.length < 20 ? true :false
+        })
+      }
+    })
+  },
+  search(){
+    var _this = this;
+    this.setData({
+      scrollTop:0
+    })
+    utils.utilRequest('/mpApi/finishibook', { type: parseInt(this.data.type), page: 1, cid: parseInt(this.data.cid), isfree: parseInt(this.data.isfree) }, 'get', function (data) {
+      if (data.resultCode == 0) {
+        _this.setData({
+          finishArr: data.data,
+          page: 2,
+          finish: data.data.length < 20 ? true : false
         })
       }
     })

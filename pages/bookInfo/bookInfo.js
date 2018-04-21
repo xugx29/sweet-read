@@ -9,11 +9,44 @@ Page({
     showMore : false,
     bookInfo : {},
     bookId : 0,
-    tuijian: []
+    tuijian: [],
   },
   toggleShowMore:function(){
     this.setData({
       showMore: !this.data.showMore
+    })
+  },
+  readFirst:function(){
+    var _this = this;
+    utils.utilRequest('/mpApi/chapterlist', { bookId: this.data.bookId, page: 1, orderType: 0 }, 'get', function (data) {
+      var firstId = data.data[0].chapterId;
+      var isVip = data.data[0].isVip;
+      var name = data.data[0].chapterName;
+      var count = data.data[0].count
+      if (isVip == 0) {
+        wx.setStorageSync('readFrom', 'info')
+        var bookInfoProgress = wx.getStorageSync('bookIdProgress');
+        if (bookInfoProgress.length != 0){
+          for (var i = 0; i < bookInfoProgress.length; i++){
+            if (bookInfoProgress[i].bookId == _this.data.bookId){
+              firstId = bookInfoProgress[i].chapterId
+            }
+          }
+        }
+        wx.navigateTo({
+          url: '../article/article?id=' + firstId,
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      } else {
+        wx.navigateTo({
+          url: '../preview/preview?cost=' + count + '&id=' + id + '&name=' + name,
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      }
     })
   },
   add2Shelf(event){
@@ -96,7 +129,7 @@ Page({
     var _this = this;
     utils.utilRequest('/mpApi/bookinfo',postData,'get',function(data){
       _this.setData({
-        bookInfo : data.data
+        bookInfo : data.data,
       })
     })
       

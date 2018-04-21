@@ -129,10 +129,13 @@ view .listItem:first-child{
 .articleDesc{
   font-size:0.85em;
   color:#888;
-  display: -webkit-box; 
-  -webkit-box-orient: vertical; 
-  -webkit-line-clamp: 3; 
+  display: -webkit-box;
   overflow: hidden;
+  white-space: normal!important;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   line-height: 1.5;
 }
 .titleContent{

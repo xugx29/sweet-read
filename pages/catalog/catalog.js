@@ -33,6 +33,7 @@ Page({
     var name = event.currentTarget.dataset.name;
     var count = event.currentTarget.dataset.count
     if (isVip == 0){
+      wx.setStorageSync('readFrom', 'catalogList')
       wx.navigateTo({
         url: '../article/article?id=' + id,
         success: function(res) {},

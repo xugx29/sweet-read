@@ -111,6 +111,9 @@ Page({
 
   },
   onLoad (){
+    if (!wx.getStorageSync('bookIdProgress')){
+      wx.setStorageSync('bookIdProgress',[])
+    }
     var _this = this;
     utils.utilRequest('/mpApi/homepage', {}, 'get', function (result) {
       if(result.resultCode == 0){

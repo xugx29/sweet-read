@@ -134,7 +134,28 @@ Page({
         }
       })
     }else{
+      var arr = wx.getStorageSync('bookIdProgress');
       utils.utilRequest('/mpApi/chapter', { bookId: bookId, userId: userId, chapterId: id }, 'get', function (data) {
+        for(var i = 0;i<arr.length;i++){
+          if(arr[i].bookId == bookId){
+            console.log(23)
+            arr.splice(i,1)
+          }
+        }
+        if(arr.length > 10) {
+          arr.splice(0, 1)
+        }
+        arr = arr.concat([{ bookId: bookId, chapterId: id }])
+        wx.setStorageSync('bookIdProgress', arr)
+        if (data.resultCode != 0){
+          wx.showToast({
+            title: data.resultMsg,
+            icon: 'none',
+            duration: 1500,
+            mask: true
+          })
+          return
+        }
         _this.setData({
           article: data.data.content.replace(/<p>/g, '<p class="duanluo">').replace(/<br\/>/g, '<br/>　　'),
           name: data.data.name,
@@ -154,7 +175,16 @@ Page({
   gotoCatelog (){
     // return console.log(getCurrentPages())
     var bookId = wx.getStorageSync('bookId')
-    wx.navigateBack(1)
+    if (wx.getStorageSync('readFrom') == 'info'){
+      wx.redirectTo({
+        url: '../catalog/catalog?bookId=' + bookId,
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }else{
+      wx.navigateBack(1)
+    }
     // wx.redirectTo({
       // url: '../catalog/catalog?bookId=' + bookId,
       // success: function(res) {},

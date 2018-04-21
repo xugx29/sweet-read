@@ -15,18 +15,18 @@
     </view>
    <view class="searchContent">
       <view class="searchItem typeContent" hidden='{{!showTypeContent}}'>
-          <view wx:for="{{bookTypes}}" data-id="{{item.id}}" bindtap='changeChoose' class="item {{index == chooseTypeId ? 'choose' : ''}}">{{item.name}}</view>
+          <view wx:for="{{bookTypes}}" data-id="{{item.id}}" bindtap='changeChoose' class="item {{item.id == cid ? 'choose' : ''}}">{{item.name}}</view>
       </view>
       <view class="searchItem searchMain" hidden='{{!showSearchContent}}'>
           <view class="searchListItem">
               <view><text class="itemDesc">资费</text></view>
-              <text wx:for="{{costTypesArr}}" data-id="{{item.id}}" bindtap='changeSelect' data-type="cost" class="searchListItemType {{index == costButtonId ? 'choose' : ''}}">{{item.name}}</text>
+              <text wx:for="{{costTypesArr}}" data-id="{{item.id}}" bindtap='changeSelect' data-type="cost" class="searchListItemType {{item.id == isfree ? 'choose' : ''}}">{{item.name}}</text>
           </view>
-          <view class="confirmArea"> <button class="themeBgColor submit">确认</button></view>
+          <view class="confirmArea"> <button class="themeBgColor submit" bindtap='confirmSearch'>确认</button></view>
       </view>
     </view>
 
-    <scroll-view scroll-y="{{isScroll}}" class="itemContainer">
+    <scroll-view scroll-top="{{scrollTop}}" scroll-y="{{isScroll}}" bindscrolltolower="loadMore" class="itemContainer">
       <navigator url="/pages/bookInfo/bookInfo?id={{item.bookId}}" hover-class='none' class="listItem" wx:for-index="idx" wx:for="{{finishArr}}">
            <view style="display:flex;padding-bottom:30rpx;">
               <view class="itemImage">
