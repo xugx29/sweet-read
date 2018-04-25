@@ -12,6 +12,17 @@ Page({
       })
     })
   },
+  pay (event) {
+    var money = parseInt(event.currentTarget.dataset.money);
+    var dou = parseInt(event.currentTarget.dataset.dou);
+    var gift = parseInt(event.currentTarget.dataset.gift)
+    var userId = parseInt(wx.getStorageSync('userId'));
+    var openId = wx.getStorageSync('openId');
+    utils.utilRequest('/mpApi/pay', { userId: userId, openId: openId, count: dou + gift,amount:money }, 'get', function (data) {
+
+    })
+    console.log(money,dou)
+  },
   onShow(){
     wx.getSetting({
       success: result => {

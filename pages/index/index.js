@@ -34,6 +34,7 @@ Page({
         utils.utilRequest('/mpApi/getopenid',{code :res.code},'get',function(data){
           console.log(data);
           var openid = data.openid;
+          wx.setStorageSync('openId',openid)
           utils.utilRequest('/mpApi/login', { openid: openid, logo: userInfo.avatarUrl, nickname: userInfo.nickName}, 'get', function (result) {
             wx.setStorageSync('userId', result.data.userId);
           })
