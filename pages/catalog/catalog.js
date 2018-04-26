@@ -91,11 +91,15 @@ Page({
         }
       }
     })
-    this.getData();
+    this.setData({
+      scrollTop: 0,
+      page : 1
+    })
+    this.getData(true);
   },
   getData : function(concat){
     var _this = this;
-    utils.utilRequest('/mpApi/chapterlist', { bookId: this.data.bookId, page: this.data.page, orderType: this.data.orderType }, 'get', function (data) {
+    utils.utilRequest('/mpApi/chapterlist', {userId:wx.getStorageSync('userId'),bookId: this.data.bookId, page: this.data.page, orderType: this.data.orderType }, 'get', function (data) {
       _this.setData({
         catalogs: concat == true ? data.data : _this.data.catalogs.concat(data.data),
         page: _this.data.page + 1
