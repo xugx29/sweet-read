@@ -4,7 +4,7 @@ const app = getApp()
 const utils = require('../../utils/util.js');
 Page({
   data: {
-    defaultSearchKeyWords: '倾世妖妃',
+    defaultSearchKeyWords: '买一送一：嫁给亿万首席',
     searchKeywords: '',
     swiperImgUrls: [],
     adImgUrls1:[],
