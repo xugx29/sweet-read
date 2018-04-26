@@ -135,10 +135,31 @@ Page({
       })
     }else{
       var arr = wx.getStorageSync('bookIdProgress');
+      var clist = wx.getStorageSync('catalogsList');
+      var lastBuyedChapterId = wx.getStorageSync('lastBuyedChapterId');
+      if (!!lastBuyedChapterId) {
+        var tempData = clist;
+        for (var j = 0; j < tempData.length; j++) {
+          if (tempData[j].chapterId == lastBuyedChapterId) {
+            tempData[j].isVip = 0;
+          }
+        }
+        wx.setStorageSync('catalogsList', tempData)
+      }
+      clist = tempData;
+      for(var i = 0;i<clist.length;i++){
+        if (clist[i]['chapterId'] == id && clist[i].isVip == 1) {
+          return wx.redirectTo({
+            url: '../preview/preview?cost=' + clist[i]['count'] + '&id=' + clist[i]['chapterId'] + '&name=' + clist[i]['chapterName'],
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { },
+          })
+        }
+      }
       utils.utilRequest('/mpApi/chapter', { bookId: bookId, userId: userId, chapterId: id }, 'get', function (data) {
         for(var i = 0;i<arr.length;i++){
           if(arr[i].bookId == bookId){
-            console.log(23)
             arr.splice(i,1)
           }
         }

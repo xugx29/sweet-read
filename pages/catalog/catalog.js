@@ -32,7 +32,7 @@ Page({
     var isVip = event.currentTarget.dataset.vip;
     var id = event.currentTarget.dataset.id;
     var name = event.currentTarget.dataset.name;
-    var count = event.currentTarget.dataset.count
+    var count = event.currentTarget.dataset.count;
     if (isVip == 0){
       wx.setStorageSync('readFrom', 'catalogList')
       wx.navigateTo({
@@ -75,7 +75,7 @@ Page({
                 console.log('用户点击确定')
                 wx.openSetting({
                   success: setting => {
-                    console.log(setting)
+                    // console.log(setting)
                     if (setting.authSetting['scope.userInfo'] == true) {
                       wx.getUserInfo({
                         success: userInfo => {
@@ -109,15 +109,14 @@ Page({
     if (!!lastBuyedChapterId) {
       var tempData = _this.data.catalogs;
       for (var j = 0; j < tempData.length;j++){
-        console.log(_this.data.catalogs[j].chapterId, lastBuyedChapterId)
         if (tempData[j].chapterId == lastBuyedChapterId){
-          console.log(998)
           tempData[j].isVip = 0;
         }
       }
       _this.setData({
         catalogs: tempData
       })
+      wx.setStorageSync('catalogsList', _this.data.catalogs)
     
     }
   },
@@ -128,6 +127,7 @@ Page({
         catalogs: concat == true ? data.data : _this.data.catalogs.concat(data.data),
         page: _this.data.page + 1
       })
+      wx.setStorageSync('catalogsList', _this.data.catalogs)
     })
   },
   /**

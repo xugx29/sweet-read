@@ -1,7 +1,6 @@
 //app.js
 App({
   onLaunch: function () {
-    console.log(132)
     // 登录
     wx.login({
       success: res => {

@@ -30,7 +30,6 @@ Page({
       })
     }else{
       utils.utilRequest('/mpApi/buy', { userId: userId, bookId: bookId, chapterId: chapterId }, 'get', function (data) {
-        console.log(data)
         if (data.resultCode == 0){
           wx.setStorageSync('lastBuyedChapterId', chapterId)
           wx.redirectTo({
