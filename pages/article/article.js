@@ -145,8 +145,8 @@ Page({
           }
         }
         wx.setStorageSync('catalogsList', tempData)
+        clist = tempData;
       }
-      clist = tempData;
       for(var i = 0;i<clist.length;i++){
         if (clist[i]['chapterId'] == id && clist[i].isVip == 1) {
           return wx.redirectTo({
