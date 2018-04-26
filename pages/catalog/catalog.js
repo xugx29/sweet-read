@@ -59,6 +59,7 @@ Page({
     })
     var _this = this;
     wx.setStorageSync('bookId', options.bookId);
+    this.getData(true);
   },
   onShow:function(){
     wx.getSetting({
@@ -93,34 +94,40 @@ Page({
         }
       }
     })
-    this.setData({
-      scrollTop: 0,
-      page : 1
-    })
     var _this = this;
-    this.getData(true, function(){
-      var booksProgress = wx.getStorageSync('bookIdProgress');
-      if (!!booksProgress) {
-        for (var i = 0; i < booksProgress.length; i++) {
-          if (booksProgress[i].bookId == _this.data.bookId) {
-            console.log(booksProgress[i].chapterId)
-            _this.setData({
-              currentChapterId: booksProgress[i].chapterId
-            })
-          }
+    var booksProgress = wx.getStorageSync('bookIdProgress');
+    if (!!booksProgress) {
+      for (var i = 0; i < booksProgress.length; i++) {
+        if (booksProgress[i].bookId == _this.data.bookId) {
+          _this.setData({
+            currentChapterId: booksProgress[i].chapterId
+          })
         }
       }
-    });
+    }
+    var lastBuyedChapterId = wx.getStorageSync('lastBuyedChapterId');
+    if (!!lastBuyedChapterId) {
+      var tempData = _this.data.catalogs;
+      for (var j = 0; j < tempData.length;j++){
+        console.log(_this.data.catalogs[j].chapterId, lastBuyedChapterId)
+        if (tempData[j].chapterId == lastBuyedChapterId){
+          console.log(998)
+          tempData[j].isVip = 0;
+        }
+      }
+      _this.setData({
+        catalogs: tempData
+      })
+    
+    }
   },
-  getData : function(concat,cb){
-    cb = cb || function(){};
+  getData : function(concat){
     var _this = this;
     utils.utilRequest('/mpApi/chapterlist', {userId:wx.getStorageSync('userId'),bookId: this.data.bookId, page: this.data.page, orderType: this.data.orderType }, 'get', function (data) {
       _this.setData({
         catalogs: concat == true ? data.data : _this.data.catalogs.concat(data.data),
         page: _this.data.page + 1
       })
-      cb();
     })
   },
   /**
