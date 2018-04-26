@@ -9,7 +9,8 @@ Page({
     page : 1, // 分页页码
     orderType: 0, // 0正序 1倒序
     catalogs : [],
-    scrollTop : 0
+    scrollTop : 0,
+    currentChapterId: -10000
   },
   changeSort: function(){
     if (this.data.orderType == 1){
@@ -56,7 +57,8 @@ Page({
     this.setData({
       bookId: options.bookId
     })
-    wx.setStorageSync('bookId', options.bookId)
+    var _this = this;
+    wx.setStorageSync('bookId', options.bookId);
   },
   onShow:function(){
     wx.getSetting({
@@ -95,15 +97,30 @@ Page({
       scrollTop: 0,
       page : 1
     })
-    this.getData(true);
+    var _this = this;
+    this.getData(true, function(){
+      var booksProgress = wx.getStorageSync('bookIdProgress');
+      if (!!booksProgress) {
+        for (var i = 0; i < booksProgress.length; i++) {
+          if (booksProgress[i].bookId == _this.data.bookId) {
+            console.log(booksProgress[i].chapterId)
+            _this.setData({
+              currentChapterId: booksProgress[i].chapterId
+            })
+          }
+        }
+      }
+    });
   },
-  getData : function(concat){
+  getData : function(concat,cb){
+    cb = cb || function(){};
     var _this = this;
     utils.utilRequest('/mpApi/chapterlist', {userId:wx.getStorageSync('userId'),bookId: this.data.bookId, page: this.data.page, orderType: this.data.orderType }, 'get', function (data) {
       _this.setData({
         catalogs: concat == true ? data.data : _this.data.catalogs.concat(data.data),
         page: _this.data.page + 1
       })
+      cb();
     })
   },
   /**

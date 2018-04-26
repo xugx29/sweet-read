@@ -13,7 +13,7 @@
       <image wx:if="{{item.isVip == 1}}" class="lockIcon" mode='widthFix' src="../images/lock.png"></image>
     </navigator> -->
     <view bindtap='jump' data-vip="{{item.isVip}}" data-id="{{item.chapterId}}" data-name="{{item.chapterName}}" data-count="{{item.count}}" class="item" wx:for="{{catalogs}}">
-      <text class="itemTitle" data-id="{{item.order}}">{{item.chapterName}}</text>
+      <text style="{{currentChapterId == item.chapterId ? 'color:#ff773d' : ''}}" class="itemTitle" data-id="{{item.order}}">{{item.chapterName}}</text>
       <image wx:if="{{item.isVip == 1}}" class="lockIcon" mode='widthFix' src="../images/lock.png"></image>
     </view>
   </scroll-view>
