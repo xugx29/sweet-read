@@ -31,11 +31,15 @@ Page({
   login (userInfo){
     wx.login({
       success : res => {
+        console.log(res)
         utils.utilRequest('/mpApi/getopenid',{code :res.code},'get',function(data){
-          console.log(data);
           var openid = data.openid;
           wx.setStorageSync('openId',openid)
-          utils.utilRequest('/mpApi/login', { openid: openid, logo: userInfo.avatarUrl, nickname: userInfo.nickName}, 'get', function (result) {
+          var postData = { openid: openid, logo: userInfo.avatarUrl, nickname: userInfo.nickName };
+          if (data && data.unionid){
+            postData.unionId = data.unionid
+          }
+          utils.utilRequest('/mpApi/login', postData , 'get', function (result) {
             wx.setStorageSync('userId', result.data.userId);
           })
         })
