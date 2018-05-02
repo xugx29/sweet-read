@@ -28,17 +28,18 @@ Page({
       url: '../search/search?keywords=' + keywords,
     })
   },
-  login (userInfo){
+  login (user,userInfo){
     wx.login({
       success : res => {
         console.log(res)
         utils.utilRequest('/mpApi/getopenid',{code :res.code},'get',function(data){
           var openid = data.openid;
+          var sessionKey = data.session_key;
+          var iv = user.iv;
+          var encryptedData = user.encryptedData;
           wx.setStorageSync('openId',openid)
-          var postData = { openid: openid, logo: userInfo.avatarUrl, nickname: userInfo.nickName };
-          if (data && data.unionid){
-            postData.unionId = data.unionid
-          }
+          console.log(user);
+          var postData = { openid: openid, logo: userInfo.avatarUrl, nickname: userInfo.nickName, iv: iv, sessionKey: sessionKey, encryptedData: encryptedData};
           utils.utilRequest('/mpApi/login', postData , 'get', function (result) {
             wx.setStorageSync('userId', result.data.userId);
           })
@@ -56,7 +57,7 @@ Page({
             success : userInfo => {
               console.log(userInfo);
               wx.setStorageSync('userInfo', userInfo.userInfo);
-              _this.login(userInfo.userInfo)
+              _this.login(userInfo,userInfo.userInfo)
             }
           })
         }else{
@@ -77,6 +78,7 @@ Page({
                         return wx.getUserInfo({
                           success: userInfo => {
                             wx.setStorageSync('userInfo', userInfo.userInfo)
+                            _this.login(userInfo, userInfo.userInfo)
                           }
                         })
                       }
@@ -104,7 +106,7 @@ Page({
                 success: userInfo => {
                   console.log(userInfo);
                   wx.setStorageSync('userInfo', userInfo.userInfo);
-                  _this.login(userInfo.userInfo)
+                  _this.login(userInfo, userInfo.userInfo)
                 }
               })
             }
