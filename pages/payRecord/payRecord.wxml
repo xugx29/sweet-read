@@ -5,7 +5,7 @@
       <view class="item" wx:for-index="idx" wx:for="{{records}}">
         <view class="line1 line">
           <text class="desc">充值</text>
-          <text class="amount themeFontColor">+{{item.amount}}元</text>
+          <text class="amount themeFontColor">+{{item.amount}}甜豆</text>
         </view>
         <view class="line2 line">
           <text class="time">{{detailDate(item.datetime)}}</text>
