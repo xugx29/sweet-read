@@ -7,7 +7,7 @@
               <image src="{{mcCover[key]}}" mode="widthFix"></image>
               <view class="typeInfo">
                   <text class="typeName">{{item.cname}}</text>
-                  <text class="typeBookNum">{{item.count}}本</text>
+                   <!-- <text class="typeBookNum">{{item.count}}本</text>  -->
               </view>
             </navigator>
 
