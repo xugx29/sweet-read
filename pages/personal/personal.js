@@ -7,7 +7,8 @@ Page({
    */
   data: {
     userInfoByApi : {},
-    userInfo : {}
+    userInfo : {},
+    systemInfo: {}
   },
 
   /**
@@ -28,6 +29,19 @@ Page({
         })
       })
     }
+    wx.getSystemInfo({
+      success: function (res) {
+        if (res.platform == 'ios') {
+          _this.setData({
+            systemInfo: 0,
+          })
+        } else {
+          _this.setData({
+            systemInfo: 1,
+          })
+        }
+      }
+    })
   },
 
   /**

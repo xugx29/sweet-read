@@ -28,94 +28,39 @@ Page({
       url: '../search/search?keywords=' + keywords,
     })
   },
-  login (user,userInfo){
-    wx.login({
-      success : res => {
-        console.log(res)
-        utils.utilRequest('/mpApi/getopenid',{code :res.code},'get',function(data){
-          var openid = data.openid;
-          var sessionKey = data.session_key;
-          var iv = user.iv;
-          var encryptedData = user.encryptedData;
-          wx.setStorageSync('openId',openid)
-          console.log(user);
-          var postData = { openid: openid, logo: userInfo.avatarUrl, nickname: userInfo.nickName, iv: iv, sessionKey: sessionKey, encryptedData: encryptedData};
-          utils.utilRequest('/mpApi/login', postData , 'get', function (result) {
-            wx.setStorageSync('userId', result.data.userId);
-          })
-        })
-      }
-    })
-  },
   onShow: function () {
     var _this = this;
     wx.getSetting({
       success : result => {        
         if(JSON.stringify(result.authSetting) == '{}'){
-          console.log(1)
-          return wx.getUserInfo({
-            success : userInfo => {
-              console.log(userInfo);
-              wx.setStorageSync('userInfo', userInfo.userInfo);
-              _this.login(userInfo,userInfo.userInfo)
-            }
+          wx.redirectTo({
+            url: '../auth/auth',
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { },
           })
         }else{
           if (!result.authSetting['scope.userInfo']) {
             console.log(2)
-            wx.showModal({
-              title: '用户未授权',
-              // content: '如需正常使用阅读记录功能，请按确定并在授权管理中选中“用户信息”，然后点按确定。最后再重新进入小程序即可正常使用。',
-              content: '如需正常使用甜悦读各项功能，请按确定并在授权管理中选中“用户信息”',
-              showCancel: false,
-              success: function (res) {
-                if (res.confirm) {
-                  console.log('用户点击确定')
-                  wx.openSetting({
-                    success: setting => {
-                      console.log(setting)
-                      if (setting.authSetting['scope.userInfo'] == true) {
-                        return wx.getUserInfo({
-                          success: userInfo => {
-                            wx.setStorageSync('userInfo', userInfo.userInfo)
-                            _this.login(userInfo, userInfo.userInfo)
-                          }
-                        })
-                      }
-                    }
-                  })
-                  // wx.getSetting({
-                  //   success : result => {
-                  //     if (!result.authSetting['scope.userInfo']) {
-                  //       return wx.getUserInfo({
-                  //         success: userInfo => {
-                  //           console.log(userInfo);
-                  //           wx.setStorageSync('userInfo', userInfo.userInfo);
-                  //           _this.login(userInfo.userInfo)
-                  //         }
-                  //       })
-                  //     }
-                  //   }
-                  // })
-                }
-              }
+            wx.redirectTo({
+              url: '../auth/auth',
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
             })
           }else{
             if (wx.getStorageSync('userInfo') == '' || wx.getStorageSync('userId') == ''){
-              return wx.getUserInfo({
-                success: userInfo => {
-                  console.log(userInfo);
-                  wx.setStorageSync('userInfo', userInfo.userInfo);
-                  _this.login(userInfo, userInfo.userInfo)
-                }
+              wx.redirectTo({
+                url: '../auth/auth',
+                success: function (res) { },
+                fail: function (res) { },
+                complete: function (res) { },
               })
             }
           }
         }
       }
     })
-   
-
   },
   onLoad (){
     if (!wx.getStorageSync('bookIdProgress')){

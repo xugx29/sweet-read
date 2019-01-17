@@ -1,0 +1,8 @@
+<!--pages/auth/auth.wxml-->
+<view class="container">
+  <image wx:if="{{auth}}" src="../images/logo.png" style="width:30%;" class="slideImage" mode="widthFix"/>
+  <text wx:if="{{auth}}" class="desc">让阅读来点滋味</text> 
+  <text wx:if="{{auth}}" class="loginText">Hi 请登录~</text> 
+  <text wx:if="{{auth}}" class="loginDesc">授权后，可以更好的体验我们哦~</text>
+  <button wx:if="{{auth}}" open-type="getUserInfo" hover-class='none' bindgetuserinfo="getUserInfoFun">微信用户登录</button> 
+</view>

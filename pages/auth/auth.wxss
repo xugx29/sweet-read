@@ -1,0 +1,39 @@
+/* pages/auth/auth.wxss */
+.container{
+  display: flex;
+  height:100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center
+}
+.container text.desc{
+  color:#ff773d;
+  letter-spacing: 6px;
+  margin-top:30rpx;
+  padding-left:5px;
+  font-size:35rpx;
+}
+.container text.loginText{
+  color:#222222;
+  margin-top:150rpx;
+  font-size:42rpx;
+  font-weight: bold
+}
+.loginDesc{
+  color:#333;
+  font-size:33rpx;
+  margin-top:30rpx;
+}
+button{
+  margin-top:100rpx;
+  background: #fff;
+  border:1px solid #ff773d;
+  border-radius: 13rpx;
+  width:76%;
+  font-size:38rpx;
+  color:#ff773d;
+}
+button::after{
+border: none;
+}

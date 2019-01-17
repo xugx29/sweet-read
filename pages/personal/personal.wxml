@@ -10,7 +10,7 @@
         <view class="desc"><image mode='widthFix' class="icon" src="../images/zhanghu.jpg"></image><text class="itemName">账户</text></view>
         <view class="feature">
           <text class="balanceInfo">余额:{{userInfoByApi.count}}</text>
-          <navigator url="/pages/pay/pay">
+          <navigator wx:if="{{systemInfo != 0}}" url="/pages/pay/pay">
             <button class="recharge themeBgColor">充值</button>
           </navigator>
         </view>
@@ -27,7 +27,7 @@
     </navigator>
 
     <navigator hover-class='none'  url="/pages/payRecord/payRecord">
-      <view class="featureItem payRecord">
+      <view wx:if="{{systemInfo != 0}}" class="featureItem payRecord">
         <view class="desc"><image mode='widthFix' class="icon dingyue" src="../images/chongzhi.jpg"></image><text class="itemName">充值记录</text></view>
 
         <view class="feature">
