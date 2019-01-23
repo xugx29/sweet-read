@@ -1,5 +1,6 @@
 const md5 = require('js-md5');
 const URL = 'https://mp.sweetread.net/weixinmp';
+const payUrl = 'https://www.sweetread.net';
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -30,7 +31,54 @@ const setSortEncryption = (parameter, timeStamp) => {
   console.log(sign)
   return md5(sign).toUpperCase()
 }
-
+const payRequest = (url, params, method, callback, hideLoading) => {
+  if (!hideLoading) {
+    wx.showLoading({
+      title: 'Loading',
+      mask: true
+    })
+  }
+  // if (!!params) {
+  //   const timeStamp = new Date().getTime();
+  //   let sign = setSortEncryption(params, timeStamp);
+  //   params['timeStamp'] = timeStamp.toString();
+  //   params['sign'] = sign;
+  // }
+  console.log(payUrl + url);
+  console.log(params)
+  wx.request({
+    url: payUrl + url,
+    data: params,
+    method: method,
+    success: (res) => {
+      if (!hideLoading) {
+        wx.hideLoading()
+      }
+      if (!!callback) {
+        callback(res.data);
+      }
+    },
+    fail: res => {
+      if (!hideLoading) {
+        wx.hideLoading()
+      }
+      wx.showToast({
+        title: '网络连接异常，请检查网络',
+        icon: 'none',
+        duration: 2000
+      })
+      // if (!fail) {
+      //   wx.showToast({
+      //     title: '网络连接异常，请检查网络',
+      //     icon: 'none',
+      //     duration: 2000
+      //   })
+      // } else {
+      //   fail(res);
+      // }
+    }
+  })
+}
 const utilRequest = (url, params, method, callback, hideLoading) => {
   if (!hideLoading) {
     wx.showLoading({
@@ -89,5 +137,6 @@ Array.prototype.remove = function (dx) {
 module.exports = {
   formatTime: formatTime,
   setSortEncryption: setSortEncryption,
-  utilRequest: utilRequest
+  utilRequest: utilRequest,
+  payRequest: payRequest
 }

@@ -20,14 +20,19 @@ Page({
     var gift = parseInt(event.currentTarget.dataset.gift)
     var userId = parseInt(wx.getStorageSync('userId'));
     var openId = wx.getStorageSync('openId');
-    utils.utilRequest('/mpApi/pay', { userId: userId, openId: openId, count: dou + gift,amount:money }, 'get', function (data) {
+    var postData = { accountid: userId, inputAmount: money }
+    if (money == 365) {
+      postData.viptype = 20;
+    }
+    utils.payRequest('/Submit/WeiXinPay_XCX/', postData, 'get', function (data) {
       var packageStr = ''
-      for(var n in data.data) {
-        packageStr = n + '=' + data.data[n]
+      for(var n in data) {
+        packageStr = n + '=' + data[n]
       }
       var randomStr = _this.randomString();
       var times = new Date().getTime();
-      var signStr = 'appId=wx1f25115057119243&nonceStr=' + randomStr + '&package=' + packageStr + '&signType=MD5&timeStamp=' + times + '&key=shanghdingtian201811111111111111'
+      console.log(packageStr);
+      var signStr = 'appId=wx1f25115057119243&nonceStr=' + randomStr + '&package=' + packageStr + '&signType=MD5&timeStamp=' + times + '&key=3831e2a37bd4443a871e3273c780da82'
       console.log(signStr,'|',md5(signStr))
       var sign = md5(signStr);
       wx.requestPayment({
