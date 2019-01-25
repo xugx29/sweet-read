@@ -20,7 +20,7 @@ Page({
     var gift = parseInt(event.currentTarget.dataset.gift)
     var userId = parseInt(wx.getStorageSync('userId'));
     var openId = wx.getStorageSync('openId');
-    var postData = { accountid: userId, inputAmount: money }
+    var postData = { accountid: userId, inputAmount: money, openid: openId }
     if (money == 365) {
       postData.viptype = 20;
     }
