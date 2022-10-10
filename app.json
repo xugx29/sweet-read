@@ -17,7 +17,8 @@
     "pages/catalog/catalog",
     "pages/preview/preview",
     "pages/article/article",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/auth"
   ],
   "window": {
     "backgroundTextStyle": "light",
